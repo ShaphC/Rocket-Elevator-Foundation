@@ -1,0 +1,56 @@
+let type = ''
+
+// Show/Hide
+const residentialInputs = $("#number-of-apartments,#number-of-floors,#number-of-basements,#package,#total-price");
+const residentialInvert = $("#number-of-companies,#number-of-parking-spots,#number-of-elevators,#number-of-corporations,#maximum-occupancy,#business-hours");
+const commercialInputs = $("#number-of-floors,#number-of-basements,#number-of-companies,#number-of-parking-spots,#number-of-elevators,#package,#total-price");
+const commercialInvert = $("#number-of-apartments,#number-of-corporations,#maximum-occupancy,#business-hours");
+const corporateInputs = $("#number-of-floors,#number-of-basements,#number-of-parking-spots,#number-of-corporations,#maximum-occupancy,#package,#total-price");
+const corporateInvert = $("#number-of-apartments,#number-of-companies,#business-hours,#number-of-elevators");
+const hybridInputs = $("#number-of-floors,#number-of-basements,#number-of-companies,#number-of-parking-spots,#maximum-occupancy,#business-hours,#package,#total-price");
+const hybridInvert = $("#number-of-corporations");
+// Show/Hide
+
+
+
+
+
+
+
+
+function resetVal(){
+
+}
+
+
+
+
+
+
+$(function() {
+    // $(function() {}); is a new shorter way to express $(document).ready(function)
+        $("#building-type").change(function(){
+             type = $("#building-type").val();
+                // assigning #building-type value to type
+        if( type === "residential") {
+                residentialInputs.show(); // .show/.hide jquery method
+                residentialInvert.hide();
+                 }
+        else if ( type === "commercial") {
+                commercialInputs.show();
+                commercialInvert.hide();
+                 }
+        else if( type === "corporate") {
+                corporateInputs.show();
+                corporateInvert.hide();
+                 }
+        else if ( type === "hybrid") {
+                 hybridInputs.show();
+                 hybridInvert.hide();
+                }
+    });
+     
+});
+
+
+

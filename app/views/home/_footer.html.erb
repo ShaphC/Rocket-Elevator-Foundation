@@ -1,0 +1,98 @@
+			<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>
+								We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
+							</p>
+							<h2>(418) 555-1234</h2>
+						</div>
+						<!-- /col #1 -->
+					</div>
+
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						&copy; All Rights Reserved, Rocket Elevators
+					</div>
+				</div>
+
+			</footer>
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+		<!-- JAVASCRIPT FILES -->
+		<script>var plugin_path = 'assets/plugins/';</script>
+		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+		<script src="assets/js/quote-form.js"></script>
+		<script src="assets/js/scripts.js"></script>
+		<script src="assets/js/currency.min.js"></script>
+
+
+		<!-- REVOLUTION SLIDER -->
+		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+		<script src="assets/js/view/demo.revolution_slider.js"></script>
+
+		<!-- PAGELEVEL SCRIPTS -->
+		<!--<script src="assets/js/contact.js"></script>-->
+		<script src="assets/js/alert.js"></script>
+		<!-- 
+			GMAP.JS 
+			http://hpneo.github.io/gmaps/
+		-->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    	<script defer
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqrXfNaMc_QAEgPyN7aXIztskcQkwE3C4&callback=initMap">
+		</script>
+		<script> 
+
+				// Initialize and add the map
+				function initMap() {
+					// The location of Codeboxx
+					const Codeboxx = { lat: 45.45948962246047, lng: -73.5671347140045 };
+					// The map, centered at Codeboxx
+					const map = new google.maps.Map(document.getElementById("map2"), {
+						zoom: 15,
+						center: Codeboxx
+					});
+					const contentString =
+					'<div id="content"></div>' +
+					'<p><b>CodeBoxx</b><br>' +
+					"4468 Wellington St Suite 204," +
+					"Verdun, Québec H4G 1W5 <br>"+
+					'<a href="https://goo.gl/maps/txZECbXwKYjrSpAs5" target="_blank">View on Google Maps</a></p></div>' ;
+					
+					const infowindow = new google.maps.InfoWindow({
+						content: contentString,
+						
+					});
+					const marker = new google.maps.Marker({
+						position: Codeboxx,
+						map: map,
+						title: "Codeboxx"
+					});
+					infowindow.open(map, marker);
+					marker.addListener("click", () => {
+						infowindow.open(map, marker);
+					});
+				}
+
+		</script>

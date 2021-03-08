@@ -1,0 +1,2 @@
+module RailsAdminHelper
+end

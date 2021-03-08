@@ -1,0 +1,46 @@
+<!-- Inputs Form-->
+                    <fieldset>
+                        <input type="hidden" value="contact_send" />
+    
+                        <!-- INPUTS -->
+                        <div id="var_input" Style="display: none">
+                            <div id="number-of-apartments"class="col-md-4">
+                                <label for="">How many apartments ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="number-of-floors"class="col-md-4">
+                                <label for="">How many floors ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="number-of-basement"class="col-md-4">
+                                <label for="">How many basements ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="number-of-companies"class="col-md-4">
+                                <label for="">How many companies ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="number-of-parking-spots"class="col-md-4">
+                                <label for="">How many parking spot ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="number-of-elevators"class="col-md-4">
+                                <label for="">How many elevators ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="number-of-corporation"class="col-md-4">
+                                <label for="">How many corporation ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="maximum-occupancy"class="col-md-4">
+                                <label for="">Maximum number of occupants per floor? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                            <div id="business-hours"class="col-md-4">
+                                <label for="">Number of hours of activity of the building (the maximum being 24) ? </label>
+                                <input required type="number" min="0" max="1000" >
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <!-- /Inputs Form -->

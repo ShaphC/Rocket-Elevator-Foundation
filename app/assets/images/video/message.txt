@@ -1,0 +1,193 @@
+<section>
+		<form id="king_Form">
+				<!-- Select Type Buidling -->
+				<fieldset class="box-border shadow p-40">
+					<h3>Type Of Building</h3>
+
+					<div class="col-md-4">
+						<label for="contact_department">Department *</label>
+						<select id="select_building_type" class="form-control pointer" name="select_building_type">
+							<option value="select">--- Select ---</option>
+							<option value="residential">Residential</option>
+							<option value="corporate">Corporate</option>
+							<option value="commercial">Commercial</option>
+							<option value="hybrid">Hybrid</option>
+						</select>
+					</div>
+					
+				</fieldset>
+				<!-- /Select Type Buidling -->
+
+				<!-- Alert Mandatory -->
+				<div id="alert_mandatory" class="alert alert-danger mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+				</div>
+				<!-- /Alert Mandatory -->
+
+				<!-- Inputs Form-->
+				<fieldset>
+					<input type="hidden" value="contact_send" />
+
+					<!-- Residential -->
+					<div id="residential" Style="display: none">
+						<div class="col-md-4">
+							<label for="nb_apartments">How many appartements are in this building ? </label>
+							<input required type="number" onkeyup="quantityResi(gamme)" min="0" max="1000" id="residential_nb_apartments">
+						</div> 
+						<div class="col-md-4">
+							<label for="nb_floors">How many floors ? </label>
+							<input required type="number" onkeyup="quantityResi(gamme)" min="0" max="1000" id="residential_nb_floors">
+						</div>
+						<div class="col-md-4">
+							<label for="nb_basements">How many basements ? </label>
+							<input required type="number" min="0" max="1000" id="residential_nb_basements">
+						</div>
+					</div>
+					<!-- Residential -->
+					<!-- Commercial -->
+					<div id="commercial" Style="display: none">
+						<div class="col-md-4">
+							<label for="commercial_nb_building">How many number of distinct businesses you have ?</label>
+							<input required type="number" min="0" max="1000" id="commercial_nb_building">
+						</div>
+						<div class="col-md-4">
+							<label for="commercial_nb_floors">How many floors ? </label>
+							<input required type="number" min="0" max="1000" id="commercial_nb_floors">
+						</div>
+						<div class="col-md-4">
+							<label for="commercial_nb_basements">How many basements ? </label>
+							<input required type="number" min="0" max="1000" id="commercial_nb_basements">
+						</div>
+						<div class="col-md-4">
+							<label for="commercial_nb_parking">How many parking do you have ? </label>
+							<input required type="number" min="0" max="1000" id="commercial_nb_parking">
+						</div>
+						<div class="col-md-4">
+							<label for="quantity_elevator">Number of elevators needed ?  </label>
+							<input required type="number" onkeyup="shaft()" min="0" max="1000" id="commercial_nb_elevator">
+						</div>
+					</div>
+					<!-- Commercial -->
+					<!-- Corporate -->
+					<div id="corporate" Style="display: none">
+						<div class="col-md-4">
+							<label for="corporate_nb_tenants">How many separate tenant companies ? </label>
+							<input required type="number" min="0" max="1000" onkeyup="quantity_corp(gamme)" id="corporate_nb_tenants">
+						</div>
+						<div class="col-md-4">
+							<label for="corporate_nb_floors">How many floors ? </label>
+							<input required type="number" min="0" max="1000" onkeyup="quantity_corp(gamme)" id="corporate_nb_floors">
+						</div>
+						<div class="col-md-4">
+							<label for="corporate_nb_basements">How many basements contains your building ? </label>
+							<input required type="number" min="0" max="1000" onkeyup="quantity_corp(gamme)" id="corporate_nb_basements">
+						</div>
+						<div class="col-md-4">
+							<label for="corporate_nb_parking">How many parking do you have ? </label>
+							<input required type="number" min="0" max="1000" onkeyup="quantity_corp(gamme)" id="corporate_nb_parking">
+						</div>
+						<div class="col-md-4">
+							<label for="corporate_nb_occupants">What is the maximum number of occupants per floors ?</label>
+							<input required type="number" min="0" max="1000" onkeyup="quantity_corp(gamme)" id="corporate_nb_occupants">
+						</div>
+					</div>
+					<!-- Corporate -->
+					<!-- Hybrid -->
+					<div id="hybrid" Style="display: none">
+						<div class="col-md-4">
+							<label for="hybrid_nb_businesses">How many distinct businesses you have ? </label>
+							<input type="number" min="0" max="1000" onkeyup="quantity_hyb(gamme)" id="hybrid_nb_businesses">
+						</div>
+						<div class="col-md-4">
+							<label for="hybrid_nb_floors">How many floors contains your building ? </label>
+							<input type="number" min="0" max="1000" onkeyup="quantity_hyb(gamme)" id="hybrid_nb_floors">
+						</div>
+						<div class="col-md-4">
+							<label for="hybrid_nb_basements">How many basements contains you building ? </label>
+							<input type="number" min="0" max="1000" onkeyup="quantity_hyb(gamme)" id="hybrid_nb_basements">
+						</div>
+						<div class="col-md-4">
+							<label for="hybrid_nb_parking">How many parking do you have ? </label>
+							<input type="number" min="0" max="1000" onkeyup="quantity_hyb(gamme)" id="hybrid_nb_parking">
+						</div>
+						<div class="col-md-4">
+							<label for="occupants_max">What is the maximum number of occupants per floors ? </label>
+							<input type="number" min="0" max="1000" onkeyup="quantity_hyb(gamme)" id="hybrid_nb_occupants">
+						</div>
+						<div class="col-md-4">
+							<label for="hybrid_nb_activity">How many operating activity you have on your building ? </label>
+							<input type="number" min="0" max="1000" id="hybrid_nb_activity">
+						</div>
+
+					</div>
+					<!--/hybrid-->
+
+				</fieldset>
+				<!-- /Inputs Form -->
+				
+				<!-- Quality Service Type -->
+				<fieldset id="gamme" style="display: none " class="mt-60">
+					
+						<h4>CHOOSE YOUR SETUP</h4>
+
+						<div class="toggle-transparent toggle-bordered-full clearfix">
+							<div class="toggle active toggle-content row m-0-bottom">
+								
+										<div class="col-lg-12 m-0 clearfix">
+											<label class="mt-0 fs-14 fw-400 radio float-left">
+												<input id="standard" type="radio" name="radioanswer" onchange="pricetotal('standard')" value="7565" />
+												<i></i> <span class="fw-300 gamme">Standard setup</span>
+											</label>
+										</div>
+
+										<div class="col-lg-12 m-0 clearfix">
+											<label class="mt-0 fs-14 fw-400 radio float-left">
+												<input id="premium" type="radio" name="radioanswer" onchange="pricetotal('premium')" value="12345" />
+												<i></i> <span class="fw-300 gamme">Premium setup</span>
+											</label>
+										</div>
+
+										<div class="col-lg-12 m-0 clearfix">
+											<label class="mt-0 fs-14 fw-400 radio float-left">
+												<input id="excelium" type="radio" name="radioanswer" onchange="pricetotal('excelium')" value="15400" />
+												<i></i> <span class="fw-300 gamme">Excelium setup</span>
+											</label>
+										</div>
+
+							</div>
+						</div>
+					
+				</fieldset>		
+				<!-- /Quality Service Type -->
+
+				<!-- Final Result -->
+				<div id="result_final" class="toggle-transparent toggle-bordered-full clearfix toggle active" style="display: none">
+					
+					<span id="total_elevator" class="float-right"></span>
+						<class="float-left">Total Elevator:</class>
+							<hr />
+							
+							<span class="clearfix">
+								<span id="installation-price" class="float-right"></span>
+								<class="float-left">Installation price:</class>
+							</span>
+								
+								<hr />
+								<hr />
+							<span class="clearfix">
+								<span id="total" class="float-right fs-20"></span>
+									<span class="float-left">SubTotal: </span>
+								</span>
+								<hr />
+								<hr />
+							<span class="clearfix">
+								<span id="subtotal" class="float-right fs-20"></span>
+								<strong class="float-left">TOTAL:</strong>
+							</span>
+								<hr />
+
+				</div>
+				<!-- /Final Result -->
+		</form>
+	</section>

@@ -1,0 +1,35 @@
+<div class='container'>
+<br/>
+    <div class="heading-title">
+      <h2>Log in</h2>
+    </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email"%>
+    </div>
+    </br>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+    <%= link_to "Forgot password?", "/changepassword" %>
+     </br>
+    <div class="actions">
+      <%= f.submit "Log in", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+    <p>
+      -------- or ---------
+    </p>
+  <%= button_to "Sign up", "/signup", :id => "open-contacts-dialog-btn",
+        :class => "inbox-sf-add-btn tip btn btn-primary", :method => :get %>
+
+</div>

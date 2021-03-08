@@ -1,0 +1,38 @@
+    <head><%= javascript_include_tag 'application' %></head>
+    <%= javascript_include_tag "//www.google.com/jsapi" %> %>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <% if !current_user || !current_user.admin %>
+        <%= redirect_to '/home' %>
+    <% end %>
+
+</br>
+<header class="text-center mb-60">
+    <h2>Monthly Quotes</h2>
+    <p class="lead font-lato"></p>
+    <hr />
+</header>
+
+<%= column_chart FactQuotes.group_by_month(:creation).count %>
+</br>
+<header class="text-center mb-60">
+    <h2>Monthly Contact Requests</h2>
+    <p class="lead font-lato"></p>
+    <hr />
+</header>
+<%= column_chart FactContact.group_by_month(:creation_date).count %>
+</br>
+<header class="text-center mb-60">
+    <h2>Elevators per Customer</h2>
+    <p class="lead font-lato"></p>
+    <hr />
+</header>
+<%= column_chart DimCustomers.group(:nb_elevators).count %>
+</br>
+<header class="text-center mb-60">
+    <h2>Quote Product line</h2>
+    <p class="lead font-lato"></p>
+    <hr />
+</header>
+<%= pie_chart Quote.group(:product_line).count %>
+</br>

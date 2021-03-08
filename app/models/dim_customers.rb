@@ -1,0 +1,2 @@
+class DimCustomers < DwhRecord
+end

@@ -1,0 +1,121 @@
+<section id="quote-form">
+<div class="container">
+    <div class="heading-title heading-dotted text-center">
+        <h2>QUOTE <span>FORM</span></h2>
+    </div>
+    <!-- /Title -->
+    <!-- Quote Form -->
+
+    <div class="container form ">
+        <%= form_for(Quote.new) do |f| %> 
+            <%= f.label :building_type %>
+            <%= f.select :building_type, [[' ',' '],['Residential','residential'],['Commercial','commercial'],['Corporate','corporate'],['Hybrid', 'hybrid']] %>
+        <div class="form row">
+                <input type="hidden" value="contact_send">
+                 <div id="number-of-apartments" class="col-md-4" style="display: none;">
+                    <%= f.label :number_of_apartments %>
+                    <%= f.text_field :number_of_apartments , class:"form-control" %>
+                </div>
+                <div id="number-of-floors" class="col-md-4" style="display: none;">
+                <%= f.label :number_of_floors %>
+                <%= f.text_field :number_of_floors , class:"form-control" %>
+                </div>
+                <div id="number-of-basements" class="col-md-4" style="display: none;">
+                <%= f.label :number_of_basements %>
+                <%= f.text_field :number_of_basements , class:"form-control" %>
+                </div>
+                <div id="number-of-companies" class="col-md-4" style="display: none;">
+                <%= f.label :number_of_companies %>
+                <%= f.text_field :number_of_companies , class:"form-control" %>
+                </div>
+                <div id="number-of-parking-spots" class="col-md-4" style="display: none;">
+                <%= f.label :number_of_parking %>
+                <%= f.text_field :number_of_parking , class:"form-control" %>
+                </div>
+                <div id="number-of-elevators" class="col-md-4" style="display: none;">
+                <%= f.label :number_of_elevators %>
+                <%= f.text_field :number_of_elevators , class:"form-control"%>
+                </div>
+                <div id="number-of-corporations" class="col-md-4" style="display: none;">
+                <%= f.label :number_of_corporations %>
+                <%= f.text_field :number_of_corporations , class:"form-control"%>
+                </div>
+                <div id="maximum-occupancy" class="col-md-4" style="display: none;">
+                <%= f.label :maximum_occupancy %>
+                <%= f.text_field :maximum_occupancy , class:"form-control"%>
+                </div>
+                <div id="business-hours" class="col-md-4" style="display: none;">
+                <%= f.label :business_hours %>
+                <%= f.text_field :business_hours , class:"form-control"%>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- /Fields -->
+<!-- Product Line-->
+<div class="container">
+    <div id="package" class="container col-md-4">
+        <label>PRODUCT LINE</label>
+        <div class="form-check form-check-inline col-md-1">
+            <%= f.radio_button :product_line, "standard" , class:"form-check-input" %>
+            <%= f.label "Standard" , class:"form-check-label"%>
+        </div>
+        <div class="form-check form-check-inline col-md-1">
+            <%= f.radio_button :product_line, "premium" , class:"form-check-input" %>
+            <%= f.label "Premium" , class:"form-check-label" %>
+        </div>
+        <div class="form-check form-check-inline col-md-1">
+            <%= f.radio_button :product_line, "excelium"  , class:"form-check-input"%>
+            <%= f.label "Excelium" , class:"form-check-label" %>
+        </div>
+    </div>
+    <!-- /Product Line -->
+    <!-- Prices -->
+    <div class="container form col-md-4">
+        <div id="elevator-amount" class="form-group col-md-4" style="display:none">
+            <%= f.label :elevator_amount %>
+            <%= f.text_field :elevator_amount, :readonly => true , class:"form-control" %>
+        </div>
+        <div id="elevator-unit-price" class="form-group col-md-4" style="display:none">
+            <%= f.label :unit_price %>
+            <%= f.text_field :unit_price, :readonly => true , class:"form-control" %>
+        </div>
+        <div id="elevator-total-price" class="form-group col-md-4" style="display:none">
+            <%= f.label :total_price %>
+            <%= f.text_field :total_price, :readonly => true , class:"form-control"%>
+        </div>
+    </div>
+</div>
+<div class="container form col-md-4">
+    <div id="installation-fees" class="col-md-4" style="display:none">
+        <%= f.label :install_fees %>
+        <%= f.text_field :install_fees, :readonly => true , class:"form-control" %>
+    </div>
+    <div id="final-price" class="col-md-4" style="display:none">
+        <%= f.label :final_price %>
+        <%= f.text_field :final_price, :readonly => true , class:"form-control" %>
+    </div>
+    </br>
+    
+    <div id="quote_company_name" class="col-md-4" >
+                <%= f.label :"Company name" %>
+                <%= f.text_field :quotes_company_name , class:"form-control"%>
+    </div>
+    </br>
+    <div id="quotes_email" class="col-md-4" >
+                <%= f.label :Email %>
+                <%= f.email_field :quotes_email , class:"form-control"%>
+    </div>
+    </br>
+    <div id="quotes_name" class="col-md-4" >
+                <%= f.label :Name %>
+                <%= f.text_field :quotes_name , class:"form-control"%>
+    </div>
+    </br>
+    <div class="col-md-12">
+    <%= submit_tag "Send Quote" , class: 'btn btn-primary'  %><i class:"fa fa-check"></i>
+    
+    </div>
+    </br>
+</div>
+<% end %>

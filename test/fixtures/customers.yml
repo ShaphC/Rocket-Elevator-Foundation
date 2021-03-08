@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_create: 2021-02-22
+  company_name: MyString
+  cpy_contact_name: MyString
+  cpy_contact_phone: MyString
+  cpy_contact_email: MyString
+  cpy_description: MyString
+  tech_authority_service_phone: MyString
+  tech_manager_service_email: MyString
+
+two:
+  date_create: 2021-02-22
+  company_name: MyString
+  cpy_contact_name: MyString
+  cpy_contact_phone: MyString
+  cpy_contact_email: MyString
+  cpy_description: MyString
+  tech_authority_service_phone: MyString
+  tech_manager_service_email: MyString

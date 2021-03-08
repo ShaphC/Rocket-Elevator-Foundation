@@ -1,0 +1,93 @@
+			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left" href="/home">
+							<img src="/assets/RE/re_logo.png" alt=""/>
+						</a>
+
+						<div class="navbar-collapse collapse float-right nav-main-collapse">
+							<nav class="nav-main">
+
+							<% flash.each do |type, msg| %>
+								<div>
+									<%= msg %>
+								</div>
+							<% end %>
+
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+
+									<li> <!-- HOME -->
+										<%= link_to "HOME" , "#{root_path}home"%>
+									</li>
+									<li><!-- SERVICES -->
+										<a id="services-nav" class="dropdown-toggle" data-toggle="dropdown"  href="/home#services">
+											SERVICES
+										</a>
+										<ul class="dropdown-menu">
+											<li class="dropdown-item"><a href="/residential">Residential Buildings</a></li>
+											<li class="dropdown-item"><a href="/commercial">Commercial Buildings</a></li>
+											<li class="dropdown-item"><a href="/quotes">Get A Quote</a></li>
+										</ul>
+									</li>
+									<li><!-- PORTFOLIO -->
+										
+										<%= link_to "PORTFOLIO" , "#{root_path}home#portfolio"%>
+										
+										
+									</li>
+									<li><!-- NEWS -->
+										
+										<%= link_to "NEWS" , "#{root_path}home#news"%>
+										
+									</li>
+									<li><!-- CLIENTS -->
+										
+										<%= link_to "CLIENTS" , "#{root_path}home#clients"%>
+										
+									</li>
+									<li><!-- CONTACT -->
+	
+										<%= link_to "CONTACT" , "#{root_path}home#contact"%>
+										
+									</li>
+									<li>
+									
+										<% if !current_user %>
+										<a href=<%= "signin" %>>LOG IN</a>
+										<% end %>
+									
+									</li>
+									<li>
+									
+										<% if current_user%>
+											<% if current_user.admin%>
+											<a href=<%= "admin" %>>ADMIN</a>
+											<% end %>
+										<% end %>
+								
+									</li>
+									<li>
+									
+										<% if current_user %>
+										<%= link_to 'SIGN OUT', "/signout", method: :destroy %>
+										<% end %>
+								
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+
+			</div>

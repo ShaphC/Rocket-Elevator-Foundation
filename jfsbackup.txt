@@ -1,0 +1,130 @@
+
+   add_reference :employess, :user
+
+
+
+   master clean
+   public repo during the deployment
+   cap production deploy
+   ssh ubuntu@(ip addresse from production.rb server"99.79.123.96")
+   ssh ubuntu@99.79.123.96
+   now connecte on the amazon
+   ls all apps are there 
+   move to your app 
+   move to shared
+   move to config
+   sudo nano database.yml
+   copy and paste the database
+
+++++++++++++++++++++
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username: codeboxx
+  password: Codeboxx1!
+  host: codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com
+  port: 3306
+
+
+development:
+  <<: *default
+  database: ma
+
+  save and quit
+  and exit with exit
+  +++++++++++++++
+  
+  cap production puma:config
+  cap production puma:nginx_config
+  ask coach to do the config puma and nginx you will supply domaine name
+
+  dns config in awls
+  type A ip address is the one from production
+
+  wait for the coach okay
+  cap production deploy
+
+
+  
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: Admin007*
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: Rocket_Elevators_Information_System_development
+
+
+test:
+  <<: *default
+  database: Rocket_Elevators_Information_System_test
+
+
+
+
+production:
+  <<: *default
+  database: Rocket_Elevators_Information_System_production
+  username: Rocket_Elevators_Information_System
+  password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>
+
+
+<div class="container form col-md-4">
+    <div id="name" class="col-md-4" style="display:none">
+        <%= f.label :quotes_name %>
+        <%= f.text_field :quotes_name %>
+    </div>
+     <div id="email" class="col-md-4" style="display:none">
+        <%= f.label :quotes_email %>
+        <%= f.text_field :quotes_email %>
+    </div>
+     <div id="company name" class="col-md-4" style="display:none">
+        <%= f.label :quotes_company_name %>
+        <%= f.text_field :quotes_company_name %>
+    </div>
+</div>
+
+feed 404 when wrong address
+if route redirect to 404
+news mcourier 
+rails g model full_name:string email:string phone:string company_name:string project_name:string department:string project_description:string message:text contact_attachment:binary
+
+
+
+# double check for the date creation CUstomer can we use the t.timestamp
+gonna add models tonigth 
+clean the root directory
+push on dev
+fix readme add users login add forgot password\
+add gemas
+4 ligne de code pr vsc
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: Admin007*
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: Rocket_Elevators_Information_System_development
+
+
+test:
+  <<: *default
+  database: Rocket_Elevators_Information_System_test
+
+
+
+
+production:
+  <<: *default
+  database: Rocket_Elevators_Information_System_production
+  username: Rocket_Elevators_Information_System
+  password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>

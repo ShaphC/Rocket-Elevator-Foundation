@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creation_date: 2021-02-24
+  company_name: MyString
+  fn_cpy_main_ct: MyString
+  email_cpy_main_ct: MyString
+  nb_elevators: 1
+  customer_city: MyString
+
+two:
+  creation_date: 2021-02-24
+  company_name: MyString
+  fn_cpy_main_ct: MyString
+  email_cpy_main_ct: MyString
+  nb_elevators: 1
+  customer_city: MyString
