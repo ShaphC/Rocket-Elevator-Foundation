@@ -1,0 +1,2 @@
+class WatsonController < ApplicationController
+end
