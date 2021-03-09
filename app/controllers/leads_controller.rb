@@ -18,6 +18,7 @@ class LeadsController < ApplicationController
         if @lead.save
             fact_contacts()
             redirect_to main_app.root_path, notice: "Message sent!"
+            # TODO HERE zendesk
         else    
             redirect_to "/leads", notice: "Invalid fields!"
         end

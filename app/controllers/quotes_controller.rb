@@ -9,6 +9,7 @@ class QuotesController < ApplicationController
         if @quote.final_price != '0.00 $' && @quote.final_price != '-$NaN' && @quote.save
             fact_quotes()
             redirect_to main_app.root_path, notice: "Quote sent!"
+            # TODO HERE zendesk
         else    
             redirect_to "/quotes", notice: "Invalid fields!"
         end
