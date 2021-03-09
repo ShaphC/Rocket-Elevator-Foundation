@@ -1,42 +1,46 @@
 require 'zendesk_api'
 
-client = ZendeskAPI::Client.new do |config|
-  # Mandatory:
+class ZendeskController < ApplicationController
 
-  config.url = "https://rocketelevators2021.zendesk.com/" # e.g. https://mydesk.zendesk.com/api/v2
+  client = ZendeskAPI::Client.new do |config|
+    # Mandatory:
 
-  # Basic / Token Authentication
-  config.username = "rocketelevators2021@zendesk.com"
+    config.url = "https://rocketelevators2021.zendesk.com/" # e.g. https://mydesk.zendesk.com/api/v2
 
-  # Choose one of the following depending on your authentication choice
-#   config.token = "your zendesk token"
-  config.password = "rocketelevators"
+    # Basic / Token Authentication
+    config.username = "rocketelevators2021@zendesk.com"
 
-  # OAuth Authentication
-#   config.access_token = "your OAuth access token"
+    # Choose one of the following depending on your authentication choice
+  #   config.token = "your zendesk token"
+    config.password = "rocketelevators"
 
-  # Optional:
+    # OAuth Authentication
+  #   config.access_token = "your OAuth access token"
 
-  # Retry uses middleware to notify the user
-  # when hitting the rate limit, sleep automatically,
-  # then retry the request.
-  config.retry = true
+    # Optional:
 
-  # Raise error when hitting the rate limit.
-  # This is ignored and always set to false when `retry` is enabled.
-  # Disabled by default.
-  config.raise_error_when_rate_limited = false
+    # Retry uses middleware to notify the user
+    # when hitting the rate limit, sleep automatically,
+    # then retry the request.
+    config.retry = true
 
-  # Logger prints to STDERR by default, to e.g. print to stdout:
-  require 'logger'
-  config.logger = Logger.new(STDOUT)
+    # Raise error when hitting the rate limit.
+    # This is ignored and always set to false when `retry` is enabled.
+    # Disabled by default.
+    config.raise_error_when_rate_limited = false
 
-  # Changes Faraday adapter
-  # config.adapter = :patron
+    # Logger prints to STDERR by default, to e.g. print to stdout:
+    require 'logger'
+    config.logger = Logger.new(STDOUT)
 
-  # Merged with the default client options hash
-  # config.client_options = {:ssl => {:verify => false}, :request => {:timeout => 30}}
+    # Changes Faraday adapter
+    # config.adapter = :patron
 
-  # When getting the error 'hostname does not match the server certificate'
-  # use the API at https://yoursubdomain.zendesk.com/api/v2
+    # Merged with the default client options hash
+    # config.client_options = {:ssl => {:verify => false}, :request => {:timeout => 30}}
+
+    # When getting the error 'hostname does not match the server certificate'
+    # use the API at https://yoursubdomain.zendesk.com/api/v2
+  end
+
 end
