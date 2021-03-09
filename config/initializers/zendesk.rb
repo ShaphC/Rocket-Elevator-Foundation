@@ -3,14 +3,14 @@ require 'zendesk_api'
 client = ZendeskAPI::Client.new do |config|
   # Mandatory:
 
-  config.url = "https://rocketelevators2021.zendesk.com/" # e.g. https://mydesk.zendesk.com/api/v2
+  config.url = ENV["zendesk_url"] # e.g. https://mydesk.zendesk.com/api/v2
 
   # Basic / Token Authentication
-  config.username = "rocketelevators2021@zendesk.com"
+  config.username = ENV["zendesk_username"]
 
   # Choose one of the following depending on your authentication choice
-#   config.token = "your zendesk token"
-  config.password = "rocketelevators"
+  config.token = ENV["zendesk_auth_token"]
+  config.password = ENV["zendesk_password"]
 
 
 #   CHECK IF WE REALLY NEED TO PUT OUR OAUTH ACCESS TOKEN --------------------------- TODO HERE !!!
