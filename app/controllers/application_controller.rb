@@ -31,10 +31,7 @@ class ApplicationController < ActionController::Base
                 accept: "audio/mp3",
                 voice: "en-US_AllisonVoice"
             ).result
-            # audio_file << response
             audio_file.write(response)
         end
     end
 end
-
-#{Address.where(id: Building.select(:address_id).distinct).select(:city).distinct.count}

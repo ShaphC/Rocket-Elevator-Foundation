@@ -10,6 +10,8 @@ RailsAdmin.config do |config|
   end
   
   
+  # ApplicationController.textToSpeech()
+  
     # Sync Data Warehouse with official Database
 
   ## == Devise ==
