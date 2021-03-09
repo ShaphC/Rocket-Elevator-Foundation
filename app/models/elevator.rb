@@ -1,17 +1,18 @@
 class Elevator < ApplicationRecord
+    belongs_to :column, optional: true
+
     after_update :elevator_status_change, :send_message, 
         :if => proc {|elevator| elevator.status == 'Intervention'}
-    belongs_to :column, optional: true
 
     def elevator_status_change
         @elevator = Elevator.order(:updated_at).last
     end
 
-    def initialize(message)
-        @message = message
-    end
+    # def initialize(message)
+    #     @message = message
+    # end
 
-    #@elevator = Elevator.
+    # #@elevator = Elevator.
 
     def send_message
     message = "The elevator ID is...#{@elevator.id} and the Serial number is...#{@elevator.serial_number}"
