@@ -9,11 +9,11 @@ client = ZendeskAPI::Client.new do |config|
   config.username = "rocketelevators2021@zendesk.com"
 
   # Choose one of the following depending on your authentication choice
-    # config.token = "your zendesk token"
+#   config.token = "your zendesk token"
   config.password = "rocketelevators"
 
   # OAuth Authentication
-  config.access_token = "your OAuth access token"
+#   config.access_token = "your OAuth access token"
 
   # Optional:
 
