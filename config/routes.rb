@@ -23,9 +23,11 @@ Rails.application.routes.draw do
   get '/clients'      => 'home#clients'
   get '/contact'      => 'contact#index'
   get '/portfolio'    => 'home#portfolio'
-  get '/charts'      =>  'charts#dashboard'
-  post '/leads'     => 'leads#create'
+  get '/charts'       =>  'charts#dashboard'
+  post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
+
+  get '/watson'     => 'watson#textToSpeech'
   
 
    

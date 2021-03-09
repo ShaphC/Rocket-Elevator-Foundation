@@ -3,6 +3,7 @@ include IBMWatson
 
 class WatsonController < ApplicationController
     def textToSpeech
+        puts "starting tts method"
         authenticator = ENV["WATSON_TTS_API_KEY"]
         
         textToSpeech = IBMWatson::TextToSpeechV1.new(
@@ -19,7 +20,7 @@ class WatsonController < ApplicationController
             voice: "en-US_AllisonVoice"
         ).result
         
-        File.open("#{Rails.root}/public/outputs.mp3", "wb") do |audio_file|
+        File.new("#{Rails.root}/public/outputs.mp3", "wb") do |audio_file|
             audio_file.write(response)
         end
     end
