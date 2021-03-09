@@ -3,14 +3,15 @@ include IBMWatson
 
 class WatsonController < ApplicationController
     def textToSpeech
-        puts "starting tts method"
-        authenticator = ENV["WATSON_TTS_API_KEY"]
+        # authenticator = ENV["WATSON_TTS_API_KEY"]
+        authenticator = "wEJLUxt1PusRSEYrqs31HSQaeKK2BN_Fri9ghFN-ZYNX"
         
         textToSpeech = IBMWatson::TextToSpeechV1.new(
         authenticator: authenticator
         )
 
-        textToSpeech.service_url = ENV["WATSON_TTS_URL"]
+        # textToSpeech.service_url = ENV["WATSON_TTS_URL"]
+        textToSpeech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/1123f030-83e2-45ef-8b86-0e7bc445d2d0"
 
         message = "Hello, this is a test message!"
         
@@ -19,8 +20,8 @@ class WatsonController < ApplicationController
             accept: "audio/mp3",
             voice: "en-US_AllisonVoice"
         ).result
-        
-        File.new("#{Rails.root}/public/outputs.mp3", "wb") do |audio_file|
+
+        File.open("#{Rails.root}/public/outputs.mp3", "wb") do |audio_file|
             audio_file.write(response)
         end
     end
