@@ -1,11 +1,72 @@
 require 'zendesk_api'
 
 class LeadsController < ApplicationController
+    
     def new
         @lead = Lead.new
     end
     
     def create
+
+        # jofaejofjoeaofke
+
+        client = ZendeskAPI::Client.new do |config|
+            # Mandatory:
+          
+            # config.url = ENV["zendesk_url"] # e.g. https://mydesk.zendesk.com/api/v2
+            config.url = "https://rocketelevators2021.zendesk.com/api/v2"
+
+
+            # Basic / Token Authentication
+            # config.username = ENV["zendesk_username"]
+            config.username = "danigrum@gmail.com"
+
+
+            # Choose one of the following depending on your authentication choice
+            # config.token = ENV["zendesk_auth_token"]
+            # config.password = ENV["zendesk_password"]
+            config.token = "zoLkKqlfJf80o8GzlAzr7F7SdXmuKGlL8desH9VY"
+            config.password = "rocketelevators"
+
+
+
+            # CHECK IF WE REALLY NEED TO PUT OUR OAUTH ACCESS TOKEN --------------------------- TODO HERE !!!
+            # OAuth Authentication
+            ##config.access_token = "your OAuth access token"
+          
+            # Optional:
+          
+            # Retry uses middleware to notify the user
+            # when hitting the rate limit, sleep automatically,
+            # then retry the request.
+            ##config.retry = true
+          
+            # Raise error when hitting the rate limit.
+            # This is ignored and always set to false when `retry` is enabled.
+            # Disabled by default.
+            ##config.raise_error_when_rate_limited = false
+          
+            # Logger prints to STDERR by default, to e.g. print to stdout:
+            ##require 'logger'
+            ##config.logger = Logger.new(STDOUT)
+          
+            # Changes Faraday adapter
+            # config.adapter = :patron
+          
+            # Merged with the default client options hash
+            # config.client_options = {:ssl => {:verify => false}, :request => {:timeout => 30}}
+          
+            # When getting the error 'hostname does not match the server certificate'
+            # use the API at https://yoursubdomain.zendesk.com/api/v2
+
+        end
+        
+        # jioefjoofjopaj
+
+
+
+
+
         puts (params) 
         file = lead_params[:file]
         @lead = Lead.new(lead_params.except(:file))
@@ -21,12 +82,25 @@ class LeadsController < ApplicationController
             fact_contacts()
                                     
             # TODO HERE zendesk
-            
-            # subject = "Subject: #{params['full_name']} from #{params['company_name']}\n"
-            # comment = "Comment: The contact #{params['full_name']} from company #{params['company_name']} can be reached at email #{params['email']} and at phone number #{params['phone']}. #{params['department']} has a project named #{params['project_name']} which would require contribution from Rocket Elevators.\n\n Project Description: #{params['project_description']}.\n\n Attached Message: #{param['message']}}"
 
-            # POST /api/v2/tickets.json
-            ZendeskAPI::Ticket.create(client, :subject => "Test Ticket", :comment => { :value => "This is a test" }, :submitter_id => client.current_user.id, :priority => "urgent")
+            subject => "Subject: #{params['full_name']} from #{params['company_name']}\n"
+            comment => "Comment: The contact #{params['full_name']} from company #{params['company_name']} can be reached at email #{params['email']} and at phone number #{params['phone']}. #{params['department']} has a project named #{params['project_name']} which would require contribution from Rocket Elevators.\n\n Project Description: #{params['project_description']}.\n\n Attached Message: #{param['message']}}"
+
+            # :subject => "Subject: #{params['full_name']} from #{params['company_name']}\n"
+            # :comment => "Comment: The contact #{params['full_name']} from company #{params['company_name']} can be reached at email #{params['email']} and at phone number #{params['phone']}. #{params['department']} has a project named #{params['project_name']} which would require contribution from Rocket Elevators.\n\n Project Description: #{params['project_description']}.\n\n Attached Message: #{param['message']}}"
+
+
+
+            # ticket = ZendeskAPI::Ticket.new(client, :id => current_user.id, :priority => "urgent") # doesn't actually send a request, must explicitly call #save!
+            # ticket.save!
+
+
+            # # POST /api/v2/tickets.json
+            ZendeskAPI::Ticket.create(client, :subject => subject, :comment => comment, :submitter_id => current_user.id, :priority => "urgent")
+
+
+            # ZendeskAPI::Collection#fetch!
+            # ZendeskAPI::Collection#to_a!
 
 
             redirect_to main_app.root_path, notice: "Message sent!"
@@ -39,7 +113,7 @@ class LeadsController < ApplicationController
     private
     def fact_contacts
 
-      dwh = PG::Connection.new(port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
+      dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
     #   dwh = PG::Connection.new(port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
       dwh.exec("TRUNCATE fact_contacts")
 

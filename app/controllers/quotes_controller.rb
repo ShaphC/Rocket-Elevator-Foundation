@@ -8,8 +8,30 @@ class QuotesController < ApplicationController
 
         if @quote.final_price != '0.00 $' && @quote.final_price != '-$NaN' && @quote.save
             fact_quotes()
-            redirect_to main_app.root_path, notice: "Quote sent!"
+
             # TODO HERE zendesk
+            
+            # subject = "Subject: #{params['full_name']} from #{params['company_name']}\n"
+            # comment = "Comment: The contact #{params['full_name']} from company #{params['company_name']} can be reached at email #{params['email']} and at phone number #{params['phone']}. #{params['department']} has a project named #{params['project_name']} which would require contribution from Rocket Elevators.\n\n Project Description: #{params['project_description']}.\n\n Attached Message: #{param['message']}}"
+
+            
+            subject = "Subject: #{params['quotes_name']} 
+            from #{params['quotes_company_name']}\n"
+            comment = "Comment: The contact #{params['quotes_name']} 
+            from company #{params['quotes_company_name']} can be reached at email 
+            #{params['quotes_email']} and at phone number 
+            #{params['phone']}. 
+            #{params['department']} has a project named 
+            #{params['project_name']} which would require contribution from Rocket Elevators.\n\n Project Description: 
+            #{params['project_description']}.\n\n Attached Message: 
+            #{param['message']}}"
+
+
+            # POST /api/v2/tickets.json
+            ZendeskAPI::Ticket.create(client, :subject => "Test Ticket", :comment => { :value => "This is a test" }, :submitter_id => client.current_user.id, :priority => "urgent")
+
+            redirect_to main_app.root_path, notice: "Quote sent!"
+
         else    
             redirect_to "/quotes", notice: "Invalid fields!"
         end
