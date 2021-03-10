@@ -69,7 +69,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ===============================================================
-#     shaphancharles added these gems(I'll move them later)
+#     Shaphan Charles added these gems(I'll move them later)
 # ===============================================================
 gem 'twilio-ruby'
 

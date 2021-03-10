@@ -1,3 +1,3 @@
 module SlackNotifier
-    CLIENT = Slack::Notifier.new ENV["token"]
+    CLIENT = Slack::Notifier.new ENV["slack_token"]
 end
