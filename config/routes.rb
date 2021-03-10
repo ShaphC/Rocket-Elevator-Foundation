@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get 'pages/commercial'
   get 'pages/404'
   get 'quotes/quotes'
-  # get 'pages/charts'
-  # get 'pages/diagram'
   devise_for :users
   
   root to: "home#index"
@@ -18,17 +16,15 @@ Rails.application.routes.draw do
   get '/404'          => 'pages#404'
   get '/quotes'       => 'quotes#quotes'
   get '/residential'  => 'pages#residential'
-  # get '/charts'       => 'pages#charts'
-  # get '/diagram'      => 'pages#diagram'
   get '/news'         => 'home#news'
   get '/clients'      => 'home#clients'
   get '/contact'      => 'contact#index'
   get '/portfolio'    => 'home#portfolio'
-  get '/charts'      =>  'charts#dashboard'
-  post '/leads'     => 'leads#create'
-  post '/quotes'      => 'quotes#create'
-  
+  get '/charts'       =>  'charts#dashboard'
+  post '/leads'       => 'leads#create'
+  post '/quotes'      => 'quotes#create' 
 
+  get '/watson'       => 'watson#textToSpeech'
    
   devise_scope :user do 
     get "/signup"     => "devise/registrations#new" 
