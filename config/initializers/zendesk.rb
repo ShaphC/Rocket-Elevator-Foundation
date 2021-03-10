@@ -12,10 +12,9 @@ client = ZendeskAPI::Client.new do |config|
   config.token = ENV["zendesk_auth_token"]
   config.password = ENV["zendesk_password"]
 
-
-#   CHECK IF WE REALLY NEED TO PUT OUR OAUTH ACCESS TOKEN --------------------------- TODO HERE !!!
+  # CHECK IF WE REALLY NEED TO PUT OUR OAUTH ACCESS TOKEN --------------------------- TODO HERE !!!
   # OAuth Authentication
-##   config.access_token = "your OAuth access token"
+  ## config.access_token = "your OAuth access token"
 
   # Optional:
 
@@ -41,4 +40,5 @@ client = ZendeskAPI::Client.new do |config|
 
   # When getting the error 'hostname does not match the server certificate'
   # use the API at https://yoursubdomain.zendesk.com/api/v2
+  
 end
