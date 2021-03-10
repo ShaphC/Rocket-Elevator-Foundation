@@ -21,8 +21,9 @@ Rails.application.routes.draw do
   get '/portfolio'    => 'home#portfolio'
   get '/charts'       =>  'charts#dashboard'
   post '/leads'       => 'leads#create'
-  post '/quotes'      => 'quotes#create'
+  post '/quotes'      => 'quotes#create' 
 
+  get '/watson'       => 'watson#textToSpeech'
    
   devise_scope :user do 
     get "/signup"     => "devise/registrations#new" 
