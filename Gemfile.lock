@@ -104,10 +104,16 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
+    eventmachine (1.2.7)
     execjs (2.7.0)
     faker (2.16.0)
       i18n (>= 1.6, < 2)
+    faye-websocket (0.11.0)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     faraday (1.3.0)
       faraday-net_http (~> 1.0)
       multipart-post (>= 1.2, < 3)
@@ -124,8 +130,28 @@ GEM
       temple (>= 0.8.0)
       tilt
     hirb (0.7.3)
+    http (4.1.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.0)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http_parser.rb (0.6.0)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
+    ibm_cloud_sdk_core (1.1.2)
+      concurrent-ruby (~> 1.0)
+      http (~> 4.1.0)
+      jwt (~> 2.2.1)
+    ibm_watson (2.0.1)
+      concurrent-ruby (~> 1.0)
+      eventmachine (~> 1.2)
+      faye-websocket (~> 0.11)
+      http (~> 4.1.0)
+      ibm_cloud_sdk_core (~> 1.1.1)
+      jwt (~> 2.2.1)
     io-like (0.3.1)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
@@ -221,6 +247,8 @@ GEM
       rails (>= 5.0, < 7)
       remotipart (~> 1.3)
       sassc-rails (>= 1.3, < 3)
+    rails_admin_google_map (0.2.0)
+      rails (>= 4.0, < 6)
     rails_admin_import (2.2.0)
       charlock_holmes (~> 0.6)
       rails (>= 3.2)
@@ -316,6 +344,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -349,7 +380,9 @@ DEPENDENCIES
   faker
   figaro
   groupdate
+  haml
   hirb
+  ibm_watson
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   multiverse
@@ -358,6 +391,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.5)
   rails_admin
+  rails_admin_google_map
   rails_admin_import (~> 2.2)
   rubocop
   rvm1-capistrano3
