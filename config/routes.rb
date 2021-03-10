@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  get 'maps/map'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'home/index'
   get 'pages/residential'
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
   end
 
   Rails.application.routes.draw do
+  get "/maps" => "maps#map"
     resources :quotes, only: [:new, :create]
   end
 end
