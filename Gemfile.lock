@@ -286,6 +286,7 @@ GEM
     simple_xlsx_reader (1.0.4)
       nokogiri
       rubyzip
+    slack-notifier (2.3.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -362,6 +363,7 @@ DEPENDENCIES
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
+  slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
