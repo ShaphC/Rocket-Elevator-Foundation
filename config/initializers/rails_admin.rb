@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'rails_admin', 'map.rb')
+require Rails.root.join('lib', 'rails_admin', 'watson.rb')
 RailsAdmin.config do |config|
   ### Popular gems integration
   config.authorize_with do
@@ -8,8 +10,7 @@ RailsAdmin.config do |config|
       redirect_to main_app.root_path
     end
   end
-  
-  
+    
     # Sync Data Warehouse with official Database
 
   ## == Devise ==
@@ -47,7 +48,8 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-
+    map
+    watson
     ## With an audit adapter, you can add:
     # history_index
     # history_show

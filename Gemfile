@@ -33,6 +33,11 @@ gem 'rails_admin_import', '~> 2.2'
 gem 'chartkick'
 gem 'groupdate'
 
+gem 'figaro'
+
+gem 'ibm_watson'
+
+gem 'rails_admin_google_map'
 # ===============================================================
 # ===============================================================
 
@@ -62,3 +67,11 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# ===============================================================
+#     Shaphan Charles added these gems(I'll move them later)
+# ===============================================================
+gem 'twilio-ruby'
+
+gem 'slack-notifier'
+# ===============================================================
