@@ -5,9 +5,14 @@ require "ibm_watson/text_to_speech_v1"
 
 class ApplicationController < ActionController::Base
     skip_before_action :verify_authenticity_token
+<<<<<<< HEAD
     protect_from_forgery with: :exception   
 
     helper_method :textToSpeech
+=======
+    protect_from_forgery with: :exception
+end 
+>>>>>>> dev
 
     def textToSpeech
         authenticator = IBMWatson::Authenticators::IamAuthenticator.new(

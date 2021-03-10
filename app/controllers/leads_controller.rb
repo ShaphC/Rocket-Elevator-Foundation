@@ -25,7 +25,7 @@ class LeadsController < ApplicationController
 
     private
     def fact_contacts
-      dwh = PG::Connection.new(port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
+      dwh = PG::Connection.new(port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
       dwh.exec("TRUNCATE fact_contacts")
 
       dwh.prepare('to_fact_contacts', 'INSERT INTO fact_contacts (contact_id, creation_date, company_name, email, project_name, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
