@@ -15,23 +15,23 @@ client = ZendeskAPI::Client.new do |config|
 
 #   CHECK IF WE REALLY NEED TO PUT OUR OAUTH ACCESS TOKEN --------------------------- TODO HERE !!!
   # OAuth Authentication
-#   config.access_token = "your OAuth access token"
+##   config.access_token = "your OAuth access token"
 
   # Optional:
 
   # Retry uses middleware to notify the user
   # when hitting the rate limit, sleep automatically,
   # then retry the request.
-  config.retry = true
+  ## config.retry = true
 
   # Raise error when hitting the rate limit.
   # This is ignored and always set to false when `retry` is enabled.
   # Disabled by default.
-  config.raise_error_when_rate_limited = false
+  ## config.raise_error_when_rate_limited = false
 
   # Logger prints to STDERR by default, to e.g. print to stdout:
-  require 'logger'
-  config.logger = Logger.new(STDOUT)
+  ## require 'logger'
+  ## config.logger = Logger.new(STDOUT)
 
   # Changes Faraday adapter
   # config.adapter = :patron
