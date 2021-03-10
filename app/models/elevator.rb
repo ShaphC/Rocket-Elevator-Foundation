@@ -1,7 +1,7 @@
 class Elevator < ApplicationRecord
     belongs_to :column, optional: true
 
-    after_update :elevator_status_change, :send_message, :textToSpeech,
+    after_update :elevator_status_change, :send_message,
         :if => proc {|elevator| elevator.status == 'Intervention'}
 
     def elevator_status_change
