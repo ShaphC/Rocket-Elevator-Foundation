@@ -34,6 +34,9 @@ gem 'chartkick'
 gem 'groupdate'
 
 gem 'figaro'
+
+gem 'ibm_watson'
+
 gem 'rails_admin_google_map'
 # ===============================================================
 # ===============================================================
@@ -64,3 +67,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'twilio-ruby'
