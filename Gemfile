@@ -68,4 +68,10 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# ===============================================================
+#     Shaphan Charles added these gems(I'll move them later)
+# ===============================================================
 gem 'twilio-ruby'
+
+gem 'slack-notifier'
+# ===============================================================
