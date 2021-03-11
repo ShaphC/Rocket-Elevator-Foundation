@@ -7,6 +7,8 @@ require 'zendesk_api'
 
 
 class LeadsController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
     
     def new
         @lead = Lead.new
@@ -95,6 +97,7 @@ class LeadsController < ApplicationController
         dwh.exec_prepared('to_fact_contacts', [ldcontact.id, ldcontact.created_at, ldcontact.company_name, ldcontact.email, ldcontact.project_name])
         end
     end
+
     def lead_params
         params.require(:lead).permit(:full_name, :email, :phone, :company_name, :project_name, :department, :project_description,
         :message, :file_attachment, :file, :image)
