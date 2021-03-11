@@ -69,7 +69,7 @@ require 'faker'
 module RailsAdmin
   module Config
     module Actions
-      class Starwars < RailsAdmin::Config::Actions::Base
+      class Watson < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
 
         register_instance_option :root? do
