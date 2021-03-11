@@ -85,7 +85,7 @@ class LeadsController < ApplicationController
 
     private
     def fact_contacts
-        dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
+        #   dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
         #   dwh = PG::Connection.new(port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
         dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
         dwh.exec("TRUNCATE fact_contacts")
