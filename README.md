@@ -247,7 +247,29 @@ This is an example of a rake task
 read me created by jean-francois taillefer
 
 
+-----------------------------------------------------------------------------------------------
 
+
+Week 7
+
+
+ZenDesk website informations: (https://www.zendesk.com/)
+  - Your Zendesk account name:  Rocket Elevators
+  - Primary email: danigrum@gmail.com
+  - Password: rocketelevators
+  - Organization: Rocket Elevators
+  - Token: zoLkKqlfJf80o8GzlAzr7F7SdXmuKGlL8desH9VY
+  https://rocketelevators2021.zendesk.com/
+
+
+
+
+OUR TEAM !!!!!
+- Adrien Gobeil
+- Daniela Grumbach Kinder
+- Etienne Gonthier-Lapointe
+- Maxime Auger
+- Shaphan Charles
 
 
 
