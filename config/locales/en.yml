@@ -35,9 +35,9 @@ en:
       map:
         menu: "Map"
         title: "Map"
-        breadcrump: "Map"
+        breadcrumb: "Map"
       
       watson:
         menu: "Watson"
         title: "Watson"
-        breadcrump: "Watson"
+        breadcrumb: "Watson"
