@@ -11,7 +11,7 @@ class Customer < ApplicationRecord
 
 
     def dropbox_file
-        client = DropboxApi::Client.new("JcLkP7EaEYkAAAAAAAAAAUYZ1b0hA22aYL2biggycsQHm-Yu6xv9VMTBMHxZ9RgA")
+        client = DropboxApi::Client.new()
         Lead.where(email: self.cpy_contact_email).each do |lead|
             if !lead.file_attachment.nil?
                 directory = "/" + self.cpy_contact_full_name
