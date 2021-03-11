@@ -35,16 +35,14 @@ gem 'groupdate'
 
 gem 'figaro'
 
-<<<<<<< HEAD
 gem "zendesk_api"
 
 gem 'sendgrid-ruby'
 
-=======
 gem 'ibm_watson'
 
 gem 'rails_admin_google_map'
->>>>>>> dev
+
 # ===============================================================
 # ===============================================================
 
