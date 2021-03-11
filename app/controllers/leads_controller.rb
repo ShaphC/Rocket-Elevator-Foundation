@@ -30,7 +30,7 @@ class LeadsController < ApplicationController
 
     def sendgrid
         from = Email.new(email: 'Rocketmax.xyz@gmail.com')
-        subject = 'Hello World from the Twilio SendGrid Ruby Library'
+        subject = 'We thank you for contacting Rocket Elevators'
         to = Email.new(email: lead_params[:email])
         content = Content.new(type: 'text/html', value: 
             "<html>
