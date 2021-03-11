@@ -2,7 +2,7 @@ class Elevator < ApplicationRecord
     belongs_to :column, optional: true
     before_update :previous_elevator_status,
         :if => proc {|elevator| elevator.status == 'Intervention'}
-    after_update :elevator_status_change, :notify_slack, #:send_message, 
+    after_update :elevator_status_change, :notify_slack, :send_message, 
         :if => proc {|elevator| elevator.status == 'Intervention'}
 
     def previous_elevator_status
