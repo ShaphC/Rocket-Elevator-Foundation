@@ -43,8 +43,7 @@ gem 'ibm_watson'
 
 gem 'rails_admin_google_map'
 
-# ===============================================================
-# ===============================================================
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
