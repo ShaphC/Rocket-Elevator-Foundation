@@ -249,27 +249,57 @@ read me created by jean-francois taillefer
 
 -----------------------------------------------------------------------------------------------
 
+# Rocket_Elevators_API 
+## CodeBoxx Odissey - Week 7 - Life is a Web Service
 
-Week 7
-
-
-ZenDesk website informations: (https://www.zendesk.com/)
-  - Your Zendesk account name:  Rocket Elevators
-  - Primary email: danigrum@gmail.com
-  - Password: rocketelevators
-  - Organization: Rocket Elevators
-  - Token: zoLkKqlfJf80o8GzlAzr7F7SdXmuKGlL8desH9VY
-  https://rocketelevators2021.zendesk.com/
-
-
-
-
-OUR TEAM !!!!!
+.
+### OUR TEAM:
 - Adrien Gobeil
 - Daniela Grumbach Kinder
 - Etienne Gonthier-Lapointe
 - Maxime Auger
 - Shaphan Charles
+
+.
+
+># [ZenDesk](https://www.zendesk.com/)
+
+  Informations: 
+  - Webpage: https://www.zendesk.com/
+  - Account name:  Rocket Elevators
+  - Primary email: danigrum@gmail.com
+  - Password: rocketelevators
+  - Organization: Rocket Elevators
+  - Token: zoLkKqlfJf80o8GzlAzr7F7SdXmuKGlL8desH9VY
+  - Rocket Elevators ZenDesk page: https://rocketelevators2021.zendesk.com/
+
+Requirements:
+
+The ZenDesk platform can be powered by a call to the API and the software can then process requests depending on the type.
+
+* The website's “Contact Us” form creates a new “Question” type ticket in ZenDesk
+
+* The website's “Get a Quote” form creates a new “Task” type ticket in ZenDesk
+
+* The tickets created are visible in the ZenDesk Console and it is possible to respond to them or even manage a workflow for these contacts.
+
+The content of each ticket created must include the contact information which has been stored in the database:
+
+Subject: **[Full Name]** from **[Company Name]**
+
+Comment: The contact **[Full Name]** from company **[Company Name]** can be reached at email  **[E-Mail Address]** and at phone number **[Phone]**. **[Department]** has a project named **[Project Name]** which would require contribution from Rocket Elevators. 
+
+**[Project Description]**
+
+Attached Message: **[Message]**
+
+The Contact uploaded an attachment
+
+
+
+
+
+
 
 
 
