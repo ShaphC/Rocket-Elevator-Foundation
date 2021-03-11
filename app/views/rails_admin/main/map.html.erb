@@ -1,10 +1,95 @@
 <script src="//maps.google.com/maps/api/js?key=AIzaSyCJ7_Pbk2f2a-bG2EXTebNaFSjOEDwnuco"></script>  
 <div id="map" style="width: 90%; height: 700px;"></div>
 <script>
- //Draw map with center on USA 
-     let map = new google.maps.Map(document.getElementById('map'), {
+    company_names = []; //Arrays of strings
+    addresses = []; //Array of strings
+    locations = []; //Array of strings
+    floors = [];
+    names = [];
+    nb_batteries = [];
+    nb_columns = [];
+    nb_elevators = [];
+    tech_names = [];
+
+
+
+    //Draw map with center on USA 
+    let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: new google.maps.LatLng(44.99, -98.5),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+   
+    <% Building.all.each do |building| %>
+
+        addresses.push(<%= raw(building.address.number_street.to_json) %>);
+        company_names.push(<%= raw(building.customer.company_name.to_json) %>);
+
+        var f=0, x=0, y=0, z=0;
+        //get address value 
+        // var address = <%= raw(building.address.to_json) %>;
+        // var address = <%= raw(building.address.number_street.to_str.to_json) %>;
+        //get lattitude value 
+        var lat = <%= raw(building.address.latitude) %>;
+        //get longitude value 
+        var long = <%= raw(building.address.longitude) %>;
+        
+        locations.push([lat, long]);
+
+        //console.log(locations.length);
+        //client name 
+        names.push(<%= raw(building.customer.company_name.to_json) %>);
+        //full name of technical contact 
+        tech_names.push(<%= raw(building.tech_contact_full_name.to_json) %>)
+        //compute floors, batteries, columns and elevators for each building 
+        x = x + <%= building.batteries.count %>;
+        //Loop to get each battery in the current building 
+        <% building.batteries.all.each do |battery| %>
+            //increment column
+            y = y + <%= battery.columns.count %>;
+            //Loop to get each column in the battery 
+            <% battery.columns.all.each do |column| %>
+                //increment the total number of floors 
+                f = f + <%= column.number_floors_served %>;
+                //increment the total number of elevators 
+                z = z + <%= column.elevators.count %>;
+            <% end %>
+        <% end %>
+        //Update numbre of floors, batteries, columns, elevators tables by push command
+        floors.push(f);
+        nb_batteries.push(x);
+        nb_columns.push(y);
+        nb_elevators.push(z);
+    <% end %>   
+
+    console.log(locations.length);
+
+    //Adding markers to the map 
+    for (i = 0; i < locations.length; i++) { 
+        console.log(locations[0]); 
+        marker = new google.maps.Marker({
+        //set position Lat=locations[i][0] and Long=Locations[i][1]    
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        map: map
+        });
+        //Add a listner if click on a marker => Show window 
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            //show building details 
+            infowindow.setContent(
+            '<b>' + addresses[i] + '</b>' 
+            + '<br>' + company_names[i]
+            + '<br> <br>' + 'floors: ' + floors[i]
+            + '<br>' + 'batteries: ' + nb_batteries[i]
+            + '<br>' + 'columns: ' + nb_columns[i]
+            + '<br>' + 'elevators: ' + nb_elevators[i]
+            + '<br>' + 'technical contact: ' + tech_names[i]);
+            infowindow.open(map, marker);
+        }
+        })(marker, i));
+    }
+
 </script>
