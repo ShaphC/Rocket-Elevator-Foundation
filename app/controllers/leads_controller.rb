@@ -42,7 +42,7 @@ class LeadsController < ApplicationController
             fact_contacts()
 
             # ZENDESK Leads 3/3
-            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}\n"}, :priority => "Priority: normal\n", :type => "Type: Question")
+            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}"}, :priority => "normal", :type => "question")
             # END Zendesk Leads 3/3
 
             redirect_to main_app.root_path, notice: "Message sent!"
