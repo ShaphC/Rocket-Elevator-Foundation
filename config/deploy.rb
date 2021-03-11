@@ -3,8 +3,8 @@ lock "~> 3.15.0"
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
-set :application, "MaximeAuger"
-set :repo_url, "https://github.com/officialmxm/Rocket_Elevators_Information_System.git"
+set :application, "AdrienGobeil"
+set :repo_url, "https://github.com/adriengobeil3/Rocket_Elevators_API"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

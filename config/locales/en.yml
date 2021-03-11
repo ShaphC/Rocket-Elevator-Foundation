@@ -30,4 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin:
+    actions:
+      map:
+        menu: "Map"
+        title: "Map"
+        breadcrumb: "Map"
+      
+      watson:
+        menu: "Watson"
+        title: "Watson"
+        breadcrumb: "Watson"

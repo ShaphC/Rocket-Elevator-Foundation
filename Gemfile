@@ -35,10 +35,16 @@ gem 'groupdate'
 
 gem 'figaro'
 
+<<<<<<< HEAD
 gem "zendesk_api"
 
 gem 'sendgrid-ruby'
 
+=======
+gem 'ibm_watson'
+
+gem 'rails_admin_google_map'
+>>>>>>> dev
 # ===============================================================
 # ===============================================================
 
@@ -68,3 +74,11 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# ===============================================================
+#     Shaphan Charles added these gems(I'll move them later)
+# ===============================================================
+gem 'twilio-ruby'
+
+gem 'slack-notifier'
+# ===============================================================

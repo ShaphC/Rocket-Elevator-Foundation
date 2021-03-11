@@ -53,19 +53,16 @@
 
 		<!-- PAGELEVEL SCRIPTS -->
 		<!--<script src="assets/js/contact.js"></script>-->
-		<script src="assets/js/alert.js"></script>
+		<%# <script src="assets/js/alert.js"></script> %>
 		<!-- 
 			GMAP.JS 
 			http://hpneo.github.io/gmaps/
 		-->
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    	<script defer
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqrXfNaMc_QAEgPyN7aXIztskcQkwE3C4&callback=initMap">
-		</script>
-		<script> 
+		
+		<%# <script>  
 
 				// Initialize and add the map
-				function initMap() {
+				/function initMap() {
 					// The location of Codeboxx
 					const Codeboxx = { lat: 45.45948962246047, lng: -73.5671347140045 };
 					// The map, centered at Codeboxx
@@ -95,4 +92,4 @@
 					});
 				}
 
-		</script>
+		</script> %>
