@@ -21,6 +21,7 @@
 /yarn-error.log
 
 /public/assets
+/public/output.mp3
 .byebug_history
 /config/database.yml
 
