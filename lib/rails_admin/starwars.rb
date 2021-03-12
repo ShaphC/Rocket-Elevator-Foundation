@@ -45,7 +45,7 @@ module RailsAdmin
             textToSpeech.service_url = ENV["WATSON_TTS_URL"]
             message = Faker::Movies::StarWars.quote 
 
-            File.open("#{Rails.root}/public/outputs.mp3", "wb") do |audio_file|
+            File.open("#{Rails.root}/public/starwars.mp3", "wb") do |audio_file|
                 response = textToSpeech.synthesize(
                     text: message,
                     accept: "audio/mp3",
