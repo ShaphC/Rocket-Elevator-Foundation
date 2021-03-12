@@ -63,8 +63,9 @@ class LeadsController < ApplicationController
             config.password = ENV["zendesk_password"]
         end
         
-        @lead.save!
-        if verify_recaptcha(model: @lead) && @lead.save
+        if verify_recaptcha(model: @lead)
+            @lead.save!
+
             fact_contacts()
 
             ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}\n"}, :priority => "Priority: normal\n", :type => "Type: Question")
@@ -74,7 +75,7 @@ class LeadsController < ApplicationController
             sendgrid()
 
         else    
-            redirect_to "/home", notice: "Invalid fields!"
+            redirect_to "/home", notice: "Invalid captcha!"
         end
     end
 
