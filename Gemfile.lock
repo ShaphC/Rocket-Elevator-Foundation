@@ -173,8 +173,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    jsonapi-renderer (0.2.2)
     json (2.5.1)
+    jsonapi-renderer (0.2.2)
     jwt (2.2.2)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
@@ -450,8 +450,8 @@ DEPENDENCIES
   rails_admin
   rails_admin_google_map
   rails_admin_import (~> 2.2)
+  recaptcha (~> 5.7)
   rspotify
-  recaptcha
   rubocop
   rvm1-capistrano3
   sass-rails (~> 5.0)

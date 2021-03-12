@@ -36,13 +36,9 @@ gem 'groupdate'
 
 gem 'figaro'
 gem 'rails_admin_google_map'
-gem 'twilio-ruby'
-gem 'slack-notifier'
-gem 'dropbox_api'
 gem 'sendgrid-ruby'
 gem 'ibm_watson'
 gem "zendesk_api"
-gem 'recaptcha', '~> 5.7'
 gem 'rspotify'
 gem 'rack-cors'
 gem 'active_model_serializers'
