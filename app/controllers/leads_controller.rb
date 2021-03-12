@@ -15,8 +15,6 @@ class LeadsController < ApplicationController
     end
     
     def create
-
-        
         # ZENDESK Leads 2/3
         client = ZendeskAPI::Client.new do |config|
             config.url = ENV["zendesk_url"]
