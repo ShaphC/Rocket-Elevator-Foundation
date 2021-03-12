@@ -17,8 +17,7 @@ class QuotesController < ApplicationController
 
         @quote = Quote.new(quote_params)
 
-
-        if @quote.final_price != '0.00 $' && @quote.final_price != '-$NaN' && @quote.save
+        if @quote.final_price != '0.00 $' && @quote.final_price != '-$NaN'
             if verify_recaptcha(model: @quote)
                 @quote.save!
     
