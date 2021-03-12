@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/residential'  => 'pages#residential'
   get '/news'         => 'home#news'
   get '/clients'      => 'home#clients'
-  get '/contact'      => 'contact#index'
+  get '/contact'      => 'home#contact'
   get '/portfolio'    => 'home#portfolio'
   get '/charts'       =>  'charts#dashboard'
   post '/leads'       => 'leads#create'
