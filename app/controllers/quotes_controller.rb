@@ -17,20 +17,26 @@ class QuotesController < ApplicationController
 
         @quote = Quote.new(quote_params)
 
+
         if @quote.final_price != '0.00 $' && @quote.final_price != '-$NaN' && @quote.save
-            fact_quotes()
-
-            # ZENDESK Quotes 2/2
-            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@quote.quotes_name} from #{@quote.quotes_company_name}\n\n", :comment => {:value => "The contact #{@quote.quotes_name} from #{@quote.quotes_company_name} can be reached at email: #{@quote.quotes_email}.\n\n Building type: #{@quote.building_type}\n Product line: #{@quote.product_line}\n Elevator amount: #{@quote.elevator_amount}\n Final price: #{@quote.final_price}\n Quote ID: #{@quote.id}"}, :priority => "normal", :type => "task")
-
-            redirect_to main_app.root_path, notice: "Quote sent!"
-
+            if verify_recaptcha(model: @quote)
+                @quote.save!
+    
+                fact_quotes()
+    
+                ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@quote.quotes_name} from #{@quote.quotes_company_name}\n\n", :comment => {:value => "The contact #{@quote.quotes_name} from #{@quote.quotes_company_name} can be reached at email: #{@quote.quotes_email}.\n\n Building type: #{@quote.building_type}\n Product line: #{@quote.product_line}\n Elevator amount: #{@quote.elevator_amount}\n Final price: #{@quote.final_price}\n Quote ID: #{@quote.id}"}, :priority => "normal", :type => "task")
+    
+                redirect_to main_app.root_path, notice: "Quote sent!"
+            else    
+                redirect_to "/quotes", notice: "Invalid fields!"
+            end
         else    
-            redirect_to "/quotes", notice: "Invalid fields!"
+            redirect_to "/quotes", notice: "Invalid captcha!"
         end
     end
 
     private
+
     def fact_quotes
     dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
       dwh.exec("TRUNCATE fact_quotes")
