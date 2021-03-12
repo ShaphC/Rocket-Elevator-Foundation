@@ -35,10 +35,10 @@
 
 		<!-- SPOTIFY -->
 		<%# <iframe src="https://open.spotify.com/embed/artist/4S9EykWXhStSc15wEx8QFK" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> %>
-		<script src="https://sdk.scdn.co/spotify-player.js"></script>
+		<%# <script src="https://sdk.scdn.co/spotify-player.js"></script>
 		<script>
 			window.onSpotifyWebPlaybackSDKReady = () => {
-				const token = 'BQD-7kt_t0dN7jhulNppa1b1xR2gCDIOt6JK-Vn4wuXRL8QVuWSFrOnzuwbT4AYkkYwiuy6ReMM6B7wny3SFbu_5p5DNGzMeZk3rkg0g30aMLcw7wWku4cubAA0bcY0j3WI9HaKlA6dMoRoGUuirglUcXwPKGyUzUtRDtMdw0yMVeTA5rfarRB0';
+				const token = '';
 				const player = new Spotify.Player({
 					name: 'Web Playback SDK Quick Start Player',
 					getOAuthToken: cb => { cb(token); }
@@ -65,7 +65,7 @@
 			// Connect to the player!
 			player.connect();
 		};
-		</script> 
+		</script>  %>
 
 
 		<!-- SCROLL TO TOP -->
