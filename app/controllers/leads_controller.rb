@@ -15,6 +15,21 @@ class LeadsController < ApplicationController
     end
     
     def create
+<<<<<<< HEAD
+=======
+
+        
+        # ZENDESK Leads 2/3
+        client = ZendeskAPI::Client.new do |config|
+            config.url = ENV["zendesk_url"]
+            config.username = ENV["zendesk_username"]
+            config.token = ENV["zendesk_auth_token"]
+            config.password = ENV["zendesk_password"]
+        end
+        # END Zendesk Leads 2/3
+
+
+>>>>>>> parent of 1f96596... added spotify player
         puts (params) 
         file = lead_params[:file]
         @lead = Lead.new(lead_params.except(:file))
