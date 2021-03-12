@@ -63,8 +63,8 @@ class LeadsController < ApplicationController
             config.password = ENV["zendesk_password"]
         end
         
-        if verify_recaptcha(model: @lead) && @lead.save
-            # @lead.save!
+        if verify_recaptcha(model: @lead)
+            @lead.save!
 
             fact_contacts()
 
