@@ -302,6 +302,12 @@ Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-r
 * gem "zendesk_api"
       https://rubygems.org/gems/zendesk_api
 
+* gem 'spotify', '~> 12.6'
+      https://rubygems.org/gems/spotify
+
+* gem 'recaptcha', '~> 5.7'
+      https://rubygems.org/gems/recaptcha
+
 
 -----------------------------------------------------------------------------------------------
 
