@@ -2,6 +2,25 @@ require 'sendgrid-ruby'
 include SendGrid
 require 'json'
 
+require 'recaptcha'
+# before_action :verify_recaptcha, only:[:create]
+
+# def verify_recaptcha
+#     response = Recaptcha.verify(params)
+#     session[:sign_up] = params[:lead].except(:email, :phone)
+#     if response.code == 200
+#         if response[‘success’]
+#             flash[:notice] = “Recaptcha verification successful.”
+#         else
+#             redirect_to index_path(lead: params[:email]),
+#             alert: “Recaptcha verification error.”
+#         end
+#         else
+#             redirect_to index_path(lead: params[:email]),
+#             alert: “HTTP connection error.”
+#         end
+# end
+
 # ZENDESK Leads 1/3
 require 'zendesk_api'
 
@@ -16,6 +35,7 @@ class LeadsController < ApplicationController
     
     def create
 
+
         
         # ZENDESK Leads 2/3
         client = ZendeskAPI::Client.new do |config|
@@ -25,7 +45,6 @@ class LeadsController < ApplicationController
             config.password = ENV["zendesk_password"]
         end
         # END Zendesk Leads 2/3
-
 
         puts (params) 
         file = lead_params[:file]
@@ -37,20 +56,26 @@ class LeadsController < ApplicationController
             @lead.filename = file.original_filename
         end
         
-        @lead.save!
-        if @lead.save
+        client = ZendeskAPI::Client.new do |config|
+            config.url = ENV["zendesk_url"]
+            config.username = ENV["zendesk_username"]
+            config.token = ENV["zendesk_auth_token"]
+            config.password = ENV["zendesk_password"]
+        end
+        
+        if verify_recaptcha(model: @lead)
+            @lead.save!
+
             fact_contacts()
 
-            # ZENDESK Leads 3/3
-            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}"}, :priority => "normal", :type => "question")
-            # END Zendesk Leads 3/3
+            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}\n"}, :priority => "Priority: normal\n", :type => "Type: Question")
 
             redirect_to main_app.root_path, notice: "Message sent!"
 
             sendgrid()
 
         else    
-            redirect_to "/leads", notice: "Invalid fields!"
+            redirect_to "/home", notice: "Invalid captcha!"
         end
     end
 

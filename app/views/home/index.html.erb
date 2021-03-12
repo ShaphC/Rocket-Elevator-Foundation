@@ -773,42 +773,42 @@
 									<div class="row">
 										<div id="contact_full_name" class="col-md-4" >
 											<%= f.label :full_name %>
-                			<%= f.text_field :full_name , class:"form-control" %>
+                			<%= f.text_field :full_name , class:"form-control", required: true %>
 										</div>
 										<div id="contact_email" class="col-md-4" >
 											<%= f.label :email %>
-                			<%= f.email_field :email, class:"form-control" %>
+                			<%= f.email_field :email, class:"form-control", required: true %>
 										</div>
 										<div id="contact_phone" class="col-md-4" >
 											<%= f.label :phone %>
-                			<%= f.text_field :phone , class:"form-control" %>
+                			<%= f.text_field :phone , class:"form-control", required: true %>
 										</div>
 									</div>
 									<div class="row">
 										<div id="contact_company_name" class="col-md-4" >
 											<%= f.label :company_name %>
-                			<%= f.text_field :company_name , class:"form-control" %>
+                			<%= f.text_field :company_name , class:"form-control", required: true %>
 										</div>
 										<div id="contact_projetc_name" class="col-md-4" >
 											<%= f.label :project_name %>
-                			<%= f.text_field :project_name , class:"form-control" %>
+                			<%= f.text_field :project_name , class:"form-control", required: true %>
 										</div>
 										<div id="contact_department" class="col-md-4" >
 											<%= f.label :department %>
-            					<%= f.select :department, [[' ',' '],['Residential','residential'],['Commercial','commercial'],['Corporate','corporate'],['Hybrid', 'hybrid']] %>
+            					<%= f.select :department, [[' ',' '],['Residential','residential'],['Commercial','commercial'],['Corporate','corporate'],['Hybrid', 'hybrid']], required: true %>
 										</div>
 									</div>
 									<div class="row">
 										<div id="contact_project_description" class="col-md-12" >
 											<%= f.label :project_description %>
-											<%= f.text_area :project_description, :cols => 54, :rows => 6 %>
+											<%= f.text_area :project_description, :cols => 54, :rows => 6, required: true %>
 										</div>
 									</div>
 
 									<div class="row">
 										<div id="contact_message" class="col-md-12" >
 											<%= f.label :message %>
-											<%= f.text_area :message, :cols => 54, :rows => 6 %>											</div>
+											<%= f.text_area :message, :cols => 54, :rows => 6, required: true %>											</div>
 										</div>
 									</div>	
 								<%# =============================attachment file upload================================ %>
@@ -825,6 +825,7 @@
 								<div class="row">
 									<div class="col-md-12">
 										<%= submit_tag "Send Message" , class: 'btn btn-primary'  %><i class:"fa fa-check"></i>
+										<%= raw recaptcha_tags %>
 									</div>
 								</div>
 							<% end %>
