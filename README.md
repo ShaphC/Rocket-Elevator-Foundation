@@ -526,6 +526,17 @@ To provide the type of voice summary described, it is necessary to execute the a
 
 ![](app/assets/images/watsonBackoffice.jpg)
 
+
+
+-----------------------------------------------------------------------------------------------
+
+Bonus 2:
+------
+
+># [Star Wars](https://www.starwars.com/) <img src="app/assets/images/starwarsLogo.png" align="right" alt="Star Wars logo" width="" height="80"> 
+
+Using Twilio to say random messages, using Faker gem, from Star Wars.
+
 -----------------------------------------------------------------------------------------------
 ># [ZenDesk](https://www.zendesk.com/) <img src="app/assets/images/zendeskLogo.png" align="right" alt="ZenDesk logo" width="" height="80"> 
 
@@ -562,10 +573,24 @@ The Contact uploaded an attachment
 
 
 -----------------------------------------------------------------------------------------------
+
+Bonus 1:
+------
+
+
 ># [Spotify](https://www.spotify.com/us/) <img src="app/assets/images/spotifyLogo.png" align="right" alt="Spotify logo" width="" height="80"> 
 
 Spotify API allows to listen to music inside the elevators.
 
+
+-----------------------------------------------------------------------------------------------
+
+Bonus 2:
+------
+
+># [Star Wars](https://www.starwars.com/) <img src="app/assets/images/starwarsLogo.png" align="right" alt="Star Wars logo" width="" height="80"> 
+
+Using Twilio to say random messages from Star Wars.
 
 -----------------------------------------------------------------------------------------------
 
