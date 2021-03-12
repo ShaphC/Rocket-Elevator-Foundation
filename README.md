@@ -354,6 +354,13 @@ The Elevator **[Elevator’s ID]** with Serial Number **[Serial Number]** change
 -----------------------------------------------------------------------------------------------
 ># [Dropbox](https://www.dropbox.com/) <img src="app/assets/images/dropboxLogo.png" align="right" alt="Dropbox logo" width="250" height=""> 
 
+
+  Dropbox website and account informations: 
+  - Webpage: https://www.dropbox.com/
+  - Login: rocketelevators2@gmail.com
+  - Password: Pa$$w0rd!!
+
+
 Dropbox API and its online storage allows Rocket Elevators to archive their documents in the clouds in a simple and flexible way while allowing access to the file from anywhere thanks to the multiple interfaces provided by Dropbox.
 
 When a contact becomes a customer, that is to say when the “Customers” table in the information system can be linked to a record in the “Leads” table, which itself offers the possibility of uploading files in a binary field of the table, it is necessary to trigger an archiving procedure which: 
@@ -364,6 +371,7 @@ When a contact becomes a customer, that is to say when the “Customers” table
 4. Copy this file to the client DropBox directory
 5. If the document is successfully downloaded to Dropbox, the controller deletes the content of the binary field from the database to avoid duplication
 
+![](app/assets/images/dropboxResult.png)
 
 -----------------------------------------------------------------------------------------------
 ># [SendGrid](https://sendgrid.com/) <img src="app/assets/images/sendgridLogo.png" align="right" alt="Sendgrid logo" width="250" height=""> 
@@ -440,7 +448,16 @@ Attached Message: **[Message]**
 
 The Contact uploaded an attachment
 
+
 -----------------------------------------------------------------------------------------------
+># [Spotify](https://www.spotify.com/us/) <img src="app/assets/images/spotifyLogo.png" align="right" alt="Spotify logo" width="" height="80"> 
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
 
 
 
