@@ -33,16 +33,16 @@ gem 'rails_admin_import', '~> 2.2'
 gem 'chartkick'
 gem 'groupdate'
 
+
 gem 'figaro'
-
-gem "zendesk_api"
-
-gem 'ibm_watson'
-
 gem 'rails_admin_google_map'
-
+gem 'twilio-ruby'
+gem 'slack-notifier'
+gem 'dropbox_api'
 gem 'sendgrid-ruby'
-
+gem 'ibm_watson'
+gem "zendesk_api"
+gem 'recaptcha', '~> 5.7'
 gem 'rspotify'
 gem 'rack-cors'
 gem 'active_model_serializers'
