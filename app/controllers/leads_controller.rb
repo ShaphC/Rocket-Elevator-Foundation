@@ -1,25 +1,8 @@
 require 'sendgrid-ruby'
 include SendGrid
 require 'json'
-
 require 'recaptcha'
-# before_action :verify_recaptcha, only:[:create]
 
-# def verify_recaptcha
-#     response = Recaptcha.verify(params)
-#     session[:sign_up] = params[:lead].except(:email, :phone)
-#     if response.code == 200
-#         if response[‘success’]
-#             flash[:notice] = “Recaptcha verification successful.”
-#         else
-#             redirect_to index_path(lead: params[:email]),
-#             alert: “Recaptcha verification error.”
-#         end
-#         else
-#             redirect_to index_path(lead: params[:email]),
-#             alert: “HTTP connection error.”
-#         end
-# end
 
 # ZENDESK Leads 1/3
 require 'zendesk_api'
@@ -35,8 +18,6 @@ class LeadsController < ApplicationController
     
     def create
 
-
-        
         # ZENDESK Leads 2/3
         client = ZendeskAPI::Client.new do |config|
             config.url = ENV["zendesk_url"]
@@ -46,9 +27,9 @@ class LeadsController < ApplicationController
         end
         # END Zendesk Leads 2/3
 
-        puts (params) 
         file = lead_params[:file]
         @lead = Lead.new(lead_params.except(:file))
+        
         if !file.nil?
             filedata = file.read
             
