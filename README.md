@@ -248,7 +248,7 @@ read me created by jean-francois taillefer
 
 
 -----------------------------------------------------------------------------------------------
-# Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="" height="100">
+# Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
 
 
 ## CodeBoxx Odissey - Week 7 - Life is a Web Service
@@ -276,7 +276,7 @@ To improve Rocket Elevators service and products offering, we implemented seven 
 
 -----------------------------------------------------------------------------------------------
 
-Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-rails-programming-language-rubygems-php-ruby-gem-angle-heart-logo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="70" height="">
+Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-rails-programming-language-rubygems-php-ruby-gem-angle-heart-logo.png" align="right" alt="gem image, from Ruby on Rails logo" width="70" height="">
 
 * gem 'figaro'
       https://rubygems.org/gems/figaro/versions/1.1.1
@@ -288,6 +288,7 @@ Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-r
       https://rubygems.org/gems/twilio-ruby
 
 * gem 'slack-notifier'
+      https://rubygems.org/gems/slack-notifier
 
 * gem 'dropbox_api'
       https://rubygems.org/gems/dropbox_api
@@ -304,7 +305,7 @@ Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-r
 
 -----------------------------------------------------------------------------------------------
 
-># [Google Maps](https://www.google.com/maps) <img src="app/assets/images/googleMapsLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="" height="100">
+># [Google Maps](https://www.google.com/maps) <img src="app/assets/images/googleMapsLogo.png" align="right" alt="Google Maps logo" width="" height="100">
 
 Google Maps from now on is used as an extension within our secure back office (reserved for Rocket Elevators employees) in order to geolocate our customers buildings on a map and display statistics on a location:
 * Location of the Buildings
@@ -321,7 +322,7 @@ The geolocation page must be a page in the Admin section of the website, availab
 
 
 -----------------------------------------------------------------------------------------------
-># [Twilio](https://www.twilio.com/) <img src="app/assets/images/twilioLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="200" height=""> 
+># [Twilio](https://www.twilio.com/) <img src="app/assets/images/twilioLogo.png" align="right" alt="Twilio logo" width="200" height=""> 
 
 Twilio’s API supports virtually all forms of communication within an application and allows integration of communications between diverse experiences regardless of the platforms on which they were built.
 
@@ -333,7 +334,7 @@ In this case, the designated contact must be the coach assigned to each team, an
 
 
 -----------------------------------------------------------------------------------------------
-># [Slack](https://slack.com/intl/pt-br/) <img src="app/assets/images/slackLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="250" height=""> 
+># [Slack](https://slack.com/intl/pt-br/) <img src="app/assets/images/slackLogo.png" align="right" alt="Slack logo" width="250" height=""> 
 
 Rocket Elevators greatly benefit from synergy between all of the company's collaborators by using the very open and flexible Slack API.
 
@@ -351,7 +352,7 @@ The Elevator **[Elevator’s ID]** with Serial Number **[Serial Number]** change
 
 
 -----------------------------------------------------------------------------------------------
-># [DropBox](https://www.dropbox.com/) <img src="app/assets/images/dropboxLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="250" height=""> 
+># [Dropbox](https://www.dropbox.com/) <img src="app/assets/images/dropboxLogo.png" align="right" alt="Dropbox logo" width="250" height=""> 
 
 Dropbox API and its online storage allows Rocket Elevators to archive their documents in the clouds in a simple and flexible way while allowing access to the file from anywhere thanks to the multiple interfaces provided by Dropbox.
 
@@ -365,21 +366,27 @@ When a contact becomes a customer, that is to say when the “Customers” table
 
 
 -----------------------------------------------------------------------------------------------
-># [SendGrid](https://sendgrid.com/) <img src="app/assets/images/sendgridLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="250" height=""> 
+># [SendGrid](https://sendgrid.com/) <img src="app/assets/images/sendgridLogo.png" align="right" alt="Sendgrid logo" width="250" height=""> 
 
 Sendgrid is a historic and essential service provider in the field of email communication. It allows emails to be sent to a base of users who have authorized transactional communications at the time of their registration (Opt-in). Sendgrid builds on a solid reputation as an email processor that guarantees delivery and favorable classification of emails to major suppliers like Google, Microsoft and Yahoo.
+
 The Rocket Elevators Table Customers database contains many emails, and Sendgrid is a service that can be used to send communications based on key events that occur during system operations. information.
+
 For Rocket Elevators, one use case to implement is sending a thank you email automatically when a contact completes the "Contact Us" form on the Rocket Elevators website. The form is saved with the email field to use. When saving to the database, a transactional thank-you email must be sent with the text below:
-Greetings [Full Name]
-We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project [Project Name].
+
+Greetings **[Full Name]**,
+
+We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project **[Project Name]**.
+
 A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
+
 We’ll Talk soon
+
 The Rocket Team
-The email must also contain the logo and overall design of Rocket Elevators.
 
 
 -----------------------------------------------------------------------------------------------
-># [IBM Watson](https://www.ibm.com/watson) <img src="app/assets/images/watsonLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="200" height=""> 
+># [IBM Watson](https://www.ibm.com/watson) <img src="app/assets/images/watsonLogo.png" align="right" alt="IBM Watson logo" width="200" height=""> 
 
 IBM through its Artificial Intelligence Watson provides application developers with many services. Among the most used, there is a Text-to-Speech functionality which can be used on a multitude of platforms.
 
@@ -400,7 +407,7 @@ To provide the type of voice summary described, it is necessary to execute the a
 ![](app/assets/images/watsonBackoffice.jpg)
 
 -----------------------------------------------------------------------------------------------
-># [ZenDesk](https://www.zendesk.com/) <img src="app/assets/images/zendeskLogo.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="" height="80"> 
+># [ZenDesk](https://www.zendesk.com/) <img src="app/assets/images/zendeskLogo.png" align="right" alt="ZenDesk logo" width="" height="80"> 
 
   ZenDesk website and account informations: 
   - Webpage: https://www.zendesk.com/
