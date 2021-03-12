@@ -1,3 +1,5 @@
+require 'recaptcha'
+
 class QuotesController < ApplicationController
     # skip_before_action :verify_authenticity_token
 
@@ -27,10 +29,10 @@ class QuotesController < ApplicationController
     
                 redirect_to main_app.root_path, notice: "Quote sent!"
             else    
-                redirect_to "/quotes", notice: "Invalid fields!"
+                redirect_to "/quotes", notice: "Invalid captcha!"
             end
         else    
-            redirect_to "/quotes", notice: "Invalid captcha!"
+            redirect_to "/quotes", notice: "Invalid fields!"
         end
     end
 
