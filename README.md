@@ -375,23 +375,135 @@ When a contact becomes a customer, that is to say when the “Customers” table
 
 -----------------------------------------------------------------------------------------------
 ># [SendGrid](https://sendgrid.com/) <img src="app/assets/images/sendgridLogo.png" align="right" alt="Sendgrid logo" width="250" height=""> 
+Sendgrid
+--------
+__1. Gems installed__ 
 
-Sendgrid is a historic and essential service provider in the field of email communication. It allows emails to be sent to a base of users who have authorized transactional communications at the time of their registration (Opt-in). Sendgrid builds on a solid reputation as an email processor that guarantees delivery and favorable classification of emails to major suppliers like Google, Microsoft and Yahoo.
+`gem 'sendgrid-ruby'`
+<br />
+*This library allows you to quickly and easily use the Twilio SendGrid Web API v3 via Ruby.*
 
-The Rocket Elevators Table Customers database contains many emails, and Sendgrid is a service that can be used to send communications based on key events that occur during system operations. information.
+`gem 'figaro'`
+<br />
+*The gem reads a config/application.yml file and sets environment variables before anything else is configured in the Rails application.*
 
-For Rocket Elevators, one use case to implement is sending a thank you email automatically when a contact completes the "Contact Us" form on the Rocket Elevators website. The form is saved with the email field to use. When saving to the database, a transactional thank-you email must be sent with the text below:
+In your terminal, don't forget to install the gems
+<br />
+`bundle install`
 
-Greetings **[Full Name]**,
+<br />
 
-We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project **[Project Name]**.
+__2. Sengrid account | Gmail account__
 
-A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
+![](app/assets/images/readme/sendgrid_logo.png) | ![](app/assets/images/readme/gmail_logo.png)
+------------ | -------------
+Sendgrid website: https://sendgrid.com | Gmail website: https://www.gmail.com
+Sendgrid account email: rocketmax.xyz@gmail.com | Gmail account email: Rocketmax.xyz@gmail.com
+Sendgrid account password: R0cketm4x.xyz2021 | Gmail account password : R0cketm4x.xyz
 
-We’ll Talk soon
+<br />
 
-The Rocket Team
+2.a. Sendgrid image url
 
+Upload a logo that can be used in the email
+
+![](app/assets/images/readme/sendgrid_image.png)
+
+<br />
+
+2.b. Sendgrid API key
+
+Create an API key through the website of Sendgrid
+
+![](app/assets/images/readme/sendgrid_keypage.png)
+
+<br />
+
+__3. Insert the Sendgrid API key__
+
+Create application.yml inside the /config folder and insert
+`SENDGRID_API_KEY : Your_API_key`
+
+![](app/assets/images/readme/sendgrid_API.png)
+
+<br />
+
+3.a. WARNING
+
+Never upload your API key on your GitHub. To avoid this, add application.yml in .gitignore
+
+`/config/application.yml`
+
+![](app/assets/images/readme/sendgrid_gitignore.png)
+
+<br />
+
+__4. The method__ 
+
+https://github.com/sendgrid/sendgrid-ruby
+
+4.a. The method is coded inside the leads_controller.rb file.
+
+```
+require 'sendgrid-ruby'
+include SendGrid
+require 'json'
+
+def sendgrid
+      from = Email.new(email: 'Rocketmax.xyz@gmail.com')
+      subject = 'We thank you for contacting Rocket Elevators'
+      to = Email.new(email: lead_params[:email])
+      content = Content.new(type: 'text/html', value: 
+      "<html>
+            <body>
+                  <p>Greetings #{lead_params[:full_name]},</p>
+                  <p>We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project #{lead_params[:project_name]}.</p>
+                  <p>A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.</p><br/>
+                  <p style='color:#0b64a0;'>We’ll Talk soon,</p>
+                  <p style='color:b10b1b;'>The Rocket Elevators Team</p>
+                  <img src='http://cdn.mcauto-images-production.sendgrid.net/3de8595335707c70/0fb39c8b-88c6-49ed-a7a2-e44a91fb762c/140x50.png'>
+                  <p>Address: 4468 Wellington St Suite 204, Verdun, Québec H4G 1W5<br/>
+                  Phone: (418) 555-1234<br/>
+                  Email: info@codeboxx.biz<br/>
+                  This is an automated message, please do not reply</p>
+                  <hr/>
+            </body>
+      </html>")
+      mail = SendGrid::Mail.new(from, subject, to, content)
+      # puts JSON.pretty_generate(mail.to_json)
+      puts mail.to_json
+
+      sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+      response = sg.client.mail._('send').post(request_body: mail.to_json)
+      puts response.status_code
+      puts response.body
+      puts response.headers
+end
+```
+
+4.b. `lead_params[:email]` `lead_params[:full=name]` `lead_params[:email]` are called from the `lead_params` method and used to personalize the email.
+
+4.c. `sendgrid()` method is called after the `fact_contnact` method when the `@lead.save!` occure.
+
+```
+   @lead.save!
+        if @lead.save
+            fact_contacts()
+            sendgrid()
+            ...
+```
+
+<br />
+
+__5. Fill up the 'contact us' form__
+
+![](app/assets/images/readme/email_form.png)
+
+<br />
+
+__6. Email received__
+
+![](app/assets/images/readme/email_received.png)
 
 -----------------------------------------------------------------------------------------------
 ># [IBM Watson](https://www.ibm.com/watson) <img src="app/assets/images/watsonLogo.png" align="right" alt="IBM Watson logo" width="200" height=""> 
@@ -452,7 +564,7 @@ The Contact uploaded an attachment
 -----------------------------------------------------------------------------------------------
 ># [Spotify](https://www.spotify.com/us/) <img src="app/assets/images/spotifyLogo.png" align="right" alt="Spotify logo" width="" height="80"> 
 
-
+Spotify API allows to listen to music inside the elevators.
 
 
 -----------------------------------------------------------------------------------------------
