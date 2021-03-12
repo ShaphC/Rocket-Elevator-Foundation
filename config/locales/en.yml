@@ -41,3 +41,8 @@ en:
         menu: "Watson"
         title: "Watson"
         breadcrumb: "Watson"
+
+      starwars:
+        menu: "Star Wars"
+        title: "Star Wars"
+        breadcrumb: "Star Wars"

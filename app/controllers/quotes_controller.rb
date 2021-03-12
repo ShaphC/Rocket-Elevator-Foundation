@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+    # skip_before_action :verify_authenticity_token
+
     def new
         @quote = Quote.new
     end
@@ -19,7 +21,7 @@ class QuotesController < ApplicationController
             fact_quotes()
 
             # ZENDESK Quotes 2/2
-            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@quote.quotes_name} from #{@quote.quotes_company_name}\n\n", :comment => {:value => "The contact #{@quote.quotes_name} from #{@quote.quotes_company_name} can be reached at email: #{@quote.quotes_email}.\n\n Building type: #{@quote.building_type}\n Product line: #{@quote.product_line}\n Elevator amount: #{@quote.elevator_amount}\n Final price: #{@quote.final_price}\n Quote ID: #{@quote.id}"}, :priority => "Priority: normal\n", :type => "Type: Task")  
+            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@quote.quotes_name} from #{@quote.quotes_company_name}\n\n", :comment => {:value => "The contact #{@quote.quotes_name} from #{@quote.quotes_company_name} can be reached at email: #{@quote.quotes_email}.\n\n Building type: #{@quote.building_type}\n Product line: #{@quote.product_line}\n Elevator amount: #{@quote.elevator_amount}\n Final price: #{@quote.final_price}\n Quote ID: #{@quote.id}"}, :priority => "normal", :type => "task")
 
             redirect_to main_app.root_path, notice: "Quote sent!"
 
