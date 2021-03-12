@@ -78,4 +78,6 @@ gem 'twilio-ruby'
 gem 'slack-notifier'
 
 gem 'dropbox_api'
+
+gem "recaptcha", :require => "recaptcha/rails"
 # ===============================================================

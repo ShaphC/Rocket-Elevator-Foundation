@@ -2,6 +2,25 @@ require 'sendgrid-ruby'
 include SendGrid
 require 'json'
 
+require 'recaptcha'
+# before_action :verify_recaptcha, only:[:create]
+
+# def verify_recaptcha
+#     response = Recaptcha.verify(params)
+#     session[:sign_up] = params[:lead].except(:email, :phone)
+#     if response.code == 200
+#         if response[‘success’]
+#             flash[:notice] = “Recaptcha verification successful.”
+#         else
+#             redirect_to index_path(lead: params[:email]),
+#             alert: “Recaptcha verification error.”
+#         end
+#         else
+#             redirect_to index_path(lead: params[:email]),
+#             alert: “HTTP connection error.”
+#         end
+# end
+
 # ZENDESK Leads 1/3
 require 'zendesk_api'
 
@@ -38,7 +57,7 @@ class LeadsController < ApplicationController
         end
         
         @lead.save!
-        if @lead.save
+        if verify_recaptcha(model: @lead) && @lead.save
             fact_contacts()
 
             # ZENDESK Leads 3/3
@@ -50,7 +69,7 @@ class LeadsController < ApplicationController
             sendgrid()
 
         else    
-            redirect_to "/leads", notice: "Invalid fields!"
+            redirect_to "/home", notice: "Invalid fields!"
         end
     end
 
