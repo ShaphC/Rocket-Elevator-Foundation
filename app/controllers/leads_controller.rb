@@ -15,6 +15,7 @@ class LeadsController < ApplicationController
     end
     
     def create
+<<<<<<< HEAD
 
 
         
@@ -27,6 +28,8 @@ class LeadsController < ApplicationController
         end
         # END Zendesk Leads 2/3
 
+=======
+>>>>>>> parent of 948f7dd... commit before revert
         puts (params) 
         file = lead_params[:file]
         @lead = Lead.new(lead_params.except(:file))
