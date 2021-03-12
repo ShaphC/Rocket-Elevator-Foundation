@@ -43,6 +43,10 @@ gem 'rails_admin_google_map'
 
 gem 'sendgrid-ruby'
 
+gem 'rspotify'
+gem 'rack-cors'
+gem 'active_model_serializers'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

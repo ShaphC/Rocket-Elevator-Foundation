@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_012724) do
+ActiveRecord::Schema.define(version: 2021_03_12_150029) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type_address"
@@ -166,6 +166,16 @@ ActiveRecord::Schema.define(version: 2021_02_26_012724) do
     t.string "building_type"
     t.string "final_price"
     t.timestamp "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tracks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "artist"
+    t.string "image"
+    t.string "preview"
+    t.string "spotify_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
