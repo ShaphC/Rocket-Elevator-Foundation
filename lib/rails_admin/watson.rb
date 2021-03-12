@@ -89,7 +89,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'icon-map-marker'
+          'icon-check'
         end
 
         register_instance_option :statistics? do
