@@ -38,9 +38,10 @@ To improve Rocket Elevators service and products offering, we implemented seven 
 * Slack
 * DropBox
 * SendGrid
-* IBM Watson
+* IBM Watson + (Star Wars features)
 * ZenDesk
 * Spotfy
+* ReCaptcha
 
 -----------------------------------------------------------------------------------------------
 
