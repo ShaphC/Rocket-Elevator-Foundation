@@ -115,6 +115,7 @@ module RailsAdmin
                   voice: "en-US_AllisonVoice"
               ).result
               audio_file.write(response)
+            end
 
             File.open("#{Rails.root}/public/outputs.mp3", "wb") do |audio_file|
                 response = textToSpeech.synthesize(
@@ -126,7 +127,6 @@ module RailsAdmin
                     voice: "en-US_AllisonVoice"
                 ).result
                 audio_file.write(response)
-            end
             end
           end
         end

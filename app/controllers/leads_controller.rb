@@ -29,19 +29,12 @@ class LeadsController < ApplicationController
 
         file = lead_params[:file]
         @lead = Lead.new(lead_params.except(:file))
-        
+
         if !file.nil?
             filedata = file.read
             
             @lead.file_attachment = filedata
             @lead.filename = file.original_filename
-        end
-        
-        client = ZendeskAPI::Client.new do |config|
-            config.url = ENV["zendesk_url"]
-            config.username = ENV["zendesk_username"]
-            config.token = ENV["zendesk_auth_token"]
-            config.password = ENV["zendesk_password"]
         end
         
         if verify_recaptcha(model: @lead)
