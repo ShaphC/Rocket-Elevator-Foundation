@@ -97,7 +97,7 @@ Google Maps from now on is used as an extension within our secure back office (r
 * Number of Elevators
 * Full name of technical contact
 
-The geolocation page must be a page in the Admin section of the website, available only to authenticated members.
+The geolocation page is in the Admin section of the website, available only to authenticated members.
 
 ![](app/assets/images/googleMapsBackoffice.jpg)
 
@@ -111,7 +111,7 @@ For Rocket Elevators, Twilio can be used to allow the platform to get in touch w
 
 If the status of an Elevator in the database changes to "Intervention" status, the building's technical contact must be identified and an SMS must be sent to the telephone number associated with this contact.
 
-In this case, the designated contact must be the coach assigned to each team, and he must receive the alerts on his mobile phone.
+In this case, the designated contact will be the coach assigned to our team, David Amyot, and he will receives the alerts on his mobile phone.
 
 
 -----------------------------------------------------------------------------------------------
@@ -142,7 +142,7 @@ The Elevator **[Elevator’s ID]** with Serial Number **[Serial Number]** change
   - Password: Pa$$w0rd!!
 
 
-Dropbox API and its online storage allows Rocket Elevators to archive their documents in the clouds in a simple and flexible way while allowing access to the file from anywhere thanks to the multiple interfaces provided by Dropbox.
+Dropbox API and its online storage allows Rocket Elevators to archive their documents in the clouds in a simple and flexible way while allowing access to the file from anywhere, thanks to the multiple interfaces provided by Dropbox.
 
 When a contact becomes a customer, that is to say when the “Customers” table in the information system can be linked to a record in the “Leads” table, which itself offers the possibility of uploading files in a binary field of the table, it is necessary to trigger an archiving procedure which: 
 
@@ -376,7 +376,7 @@ Bonus 3/3:
 
 ># [reCAPTCHA](https://www.google.com/recaptcha/about/) <img src="app/assets/images/recaptchaLogo.png" align="right" alt="Recaptcha logo" width="" height="80"> 
 
-ReCAPTCHA is an service that helps protect Rocket Elevators website from spam and abuse, is a test to tell human and robots apart.
+ReCAPTCHA is a service that helps protect Rocket Elevators website from spam and abuse, is a test to tell human and robots apart.
 
 It is implemented in the Contact Us and Quote forms.
 
