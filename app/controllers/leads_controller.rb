@@ -23,6 +23,7 @@ require 'recaptcha'
 
 # ZENDESK Leads 1/3
 require 'zendesk_api'
+# END Zendesk 1/3
 
 
 class LeadsController < ApplicationController
@@ -56,19 +57,14 @@ class LeadsController < ApplicationController
             @lead.filename = file.original_filename
         end
         
-        client = ZendeskAPI::Client.new do |config|
-            config.url = ENV["zendesk_url"]
-            config.username = ENV["zendesk_username"]
-            config.token = ENV["zendesk_auth_token"]
-            config.password = ENV["zendesk_password"]
-        end
-        
         if verify_recaptcha(model: @lead)
             @lead.save!
 
             fact_contacts()
 
-            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}\n"}, :priority => "Priority: normal\n", :type => "Type: Question")
+            # ZENDESK 3/3
+            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}"}, :priority => "normal", :type => "question")
+            # END Zendesk 3/3
 
             redirect_to main_app.root_path, notice: "Message sent!"
 

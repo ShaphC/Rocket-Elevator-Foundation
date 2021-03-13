@@ -542,7 +542,7 @@ To provide the type of voice summary described, it is necessary to execute the a
 
 -----------------------------------------------------------------------------------------------
 
-Bonus 2/4:
+Bonus 1/3:
 ------
 
 ># [Star Wars](https://www.starwars.com/) <img src="app/assets/images/starwarsLogo.png" align="right" alt="Star Wars logo" width="" height="80"> 
@@ -590,7 +590,7 @@ The Contact uploaded an attachment
 
 -----------------------------------------------------------------------------------------------
 
-Bonus 1/4:
+Bonus 2/3:
 ------
 
 ># [Spotify](https://www.spotify.com/us/) <img src="app/assets/images/spotifyLogo.png" align="right" alt="Spotify logo" width="" height="80"> 
@@ -602,7 +602,7 @@ Spotify API allows to listen to music when logged in on the backoffice.
 
 -----------------------------------------------------------------------------------------------
 
-Bonus 3/4:
+Bonus 3/3:
 ------
 
 ># [reCAPTCHA](https://www.google.com/recaptcha/about/) <img src="app/assets/images/recaptchaLogo.png" align="right" alt="Recaptcha logo" width="" height="80"> 
@@ -616,15 +616,6 @@ ReCAPTCHA on Contact Us form:
 
 ReCAPTCHA on Quote form:
 ![](app/assets/images/recaptchaQuoteForm.jpg)
-
------------------------------------------------------------------------------------------------
-
-Bonus 4/4:
-------
-
-># [reCAPTCHA](https://www.google.com/recaptcha/about/) <img src="app/assets/images/recaptchaLogo.png" align="right" alt="Recaptcha logo" width="" height="80"> 
-
-jfa jeaojfoaejf oa
 
 
 -----------------------------------------------------------------------------------------------
