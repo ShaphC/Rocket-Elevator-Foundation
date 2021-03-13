@@ -2,7 +2,6 @@
 
 URL for our site http://rocketmax.xyz/
 
-![](app/assets/images/readme/railsdb.png)
 
 📚 Instructions to acces to the admin panel:
 
