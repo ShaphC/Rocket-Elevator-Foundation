@@ -284,15 +284,6 @@ Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-r
 * gem 'rails_admin_google_map'
       https://rubygems.org/gems/rails_admin_google_map
 
-* gem 'twilio-ruby'
-      https://rubygems.org/gems/twilio-ruby
-
-* gem 'slack-notifier'
-      https://rubygems.org/gems/slack-notifier
-
-* gem 'dropbox_api'
-      https://rubygems.org/gems/dropbox_api
-
 * gem 'sendgrid-ruby'
       https://rubygems.org/gems/sendgrid-ruby
 
@@ -302,10 +293,25 @@ Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-r
 * gem "zendesk_api"
       https://rubygems.org/gems/zendesk_api
 
-* gem 'spotify', '~> 12.6'
-      https://rubygems.org/gems/spotify
+* gem 'rspotify'
+      https://rubygems.org/gems/rspotify
 
-* gem 'recaptcha', '~> 5.7'
+* gem 'rack-cors'
+      https://rubygems.org/gems/rack-cors
+
+* gem 'active_model_serializers'
+      https://rubygems.org/gems/active_model_serializers
+
+* gem 'twilio-ruby'
+      https://rubygems.org/gems/twilio-ruby
+
+* gem 'slack-notifier'
+      https://rubygems.org/gems/slack-notifier
+
+* gem 'dropbox_api'
+      https://rubygems.org/gems/dropbox_api
+
+* gem "recaptcha", '~> 5.7'
       https://rubygems.org/gems/recaptcha
 
 
@@ -536,12 +542,16 @@ To provide the type of voice summary described, it is necessary to execute the a
 
 -----------------------------------------------------------------------------------------------
 
-Bonus 2:
+Bonus 2/4:
 ------
 
 ># [Star Wars](https://www.starwars.com/) <img src="app/assets/images/starwarsLogo.png" align="right" alt="Star Wars logo" width="" height="80"> 
 
-Using Twilio to say random messages, using Faker gem, from Star Wars.
+Use of IBM Watson to say messages from the film Star Wars, automatically and randomly generated using the gem Faker.
+
+
+![](app/assets/images/starwarsbackoffice.jpg)
+
 
 -----------------------------------------------------------------------------------------------
 ># [ZenDesk](https://www.zendesk.com/) <img src="app/assets/images/zendeskLogo.png" align="right" alt="ZenDesk logo" width="" height="80"> 
@@ -580,23 +590,42 @@ The Contact uploaded an attachment
 
 -----------------------------------------------------------------------------------------------
 
-Bonus 1:
+Bonus 1/4:
 ------
-
 
 ># [Spotify](https://www.spotify.com/us/) <img src="app/assets/images/spotifyLogo.png" align="right" alt="Spotify logo" width="" height="80"> 
 
-Spotify API allows to listen to music inside the elevators.
+Spotify API allows to listen to music when logged in on the backoffice.
 
+
+![](app/assets/images/spotfybackoffice.jpg)
 
 -----------------------------------------------------------------------------------------------
 
-Bonus 2:
+Bonus 3/4:
 ------
 
-># [Star Wars](https://www.starwars.com/) <img src="app/assets/images/starwarsLogo.png" align="right" alt="Star Wars logo" width="" height="80"> 
+># [reCAPTCHA](https://www.google.com/recaptcha/about/) <img src="app/assets/images/recaptchaLogo.png" align="right" alt="Recaptcha logo" width="" height="80"> 
 
-Using Twilio to say random messages from Star Wars.
+ReCAPTCHA is an service that helps protect Rocket Elevators website from spam and abuse, is a test to tell human and robots apart.
+
+It is implemented in the Contact Us and Quote forms.
+
+ReCAPTCHA on Contact Us form:
+![](app/assets/images/recaptchaIndexPage.jpg)
+
+ReCAPTCHA on Quote form:
+![](app/assets/images/recaptchaQuoteForm.jpg)
+
+-----------------------------------------------------------------------------------------------
+
+Bonus 4/4:
+------
+
+># [reCAPTCHA](https://www.google.com/recaptcha/about/) <img src="app/assets/images/recaptchaLogo.png" align="right" alt="Recaptcha logo" width="" height="80"> 
+
+jfa jeaojfoaejf oa
+
 
 -----------------------------------------------------------------------------------------------
 
