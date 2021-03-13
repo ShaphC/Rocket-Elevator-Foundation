@@ -16,6 +16,7 @@ class QuotesController < ApplicationController
             config.token = ENV["zendesk_auth_token"]
             config.password = ENV["zendesk_password"]
         end
+        # END Zendesk 1/2
 
         @quote = Quote.new(quote_params)
 
@@ -24,9 +25,11 @@ class QuotesController < ApplicationController
                 @quote.save!
     
                 fact_quotes()
-    
+                
+                # ZENDESK 2/2
                 ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@quote.quotes_name} from #{@quote.quotes_company_name}\n\n", :comment => {:value => "The contact #{@quote.quotes_name} from #{@quote.quotes_company_name} can be reached at email: #{@quote.quotes_email}.\n\n Building type: #{@quote.building_type}\n Product line: #{@quote.product_line}\n Elevator amount: #{@quote.elevator_amount}\n Final price: #{@quote.final_price}\n Quote ID: #{@quote.id}"}, :priority => "normal", :type => "task")
-    
+                # END Zendesk 2/2
+
                 redirect_to main_app.root_path, notice: "Quote sent!"
             else    
                 redirect_to "/quotes", notice: "Invalid captcha!"
