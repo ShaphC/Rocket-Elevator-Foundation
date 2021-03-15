@@ -1,5 +1,17 @@
 require 'pg'
 namespace :dbr do
+
+  desc "Import data intervention table to fact_intervention table"
+  task interventions: :environment do
+    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
+    puts "intervention table to fact_intervention table"
+    dwh.exec("TRUNCATE fact_interventions")
+    dwh.prepare('to_fact_interventions', 'INSERT INTO fact_interventions (employee_id, building_id, battery_id, column_id, elevator_id, intervention_start, intervention_end, result, report, status, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
+    Intervention.all.each do |fact_interventions|
+      dwh.exec_prepared('to_fact_interventions', [fact_interventions.employee_id, fact_interventions.building_id, fact_interventions.battery_id, fact_interventions.column_id, fact_interventions.elevator_id, fact_interventions.intervention_start, fact_interventions.intervention_end, fact_interventions.result, fact_interventions.report, fact_interventions.status])
+    end
+  end
+
   desc "Import data from Quote Table to Fact Quote Table"
   task quotes: :environment do
     dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")

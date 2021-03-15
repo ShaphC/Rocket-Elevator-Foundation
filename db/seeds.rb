@@ -8,6 +8,7 @@ require 'csv'
 # status = ["Online", "Offline", "Online", "Online"]
 # id,address_type,status,entity,adress,appartment,city,postal_code,country,notes,created_at,updated_at
 
+#Initialization
 
 def init() 
 
@@ -35,6 +36,21 @@ def init()
       Faker::PhoneNumber.cell_phone,
       Faker::Internet.email
     )  
+  end
+
+  10.times do
+    intervention_create(
+      1,
+      2,
+      3,
+      4,
+      5,
+      Faker::Date.between(from: '2018-02-23', to: '2021-2-25'),
+      Faker::Date.between(from: '2018-02-23', to: '2021-2-25'),
+      "Success",
+      "Nothing to report",
+      "Complete"
+    )
   end
 
 
@@ -67,6 +83,23 @@ def init()
   end
 end
 
+# Definitions
+
+def intervention_create(employee_id, building_id, battery_id, column_id, elevator_id, intervention_start, intervention_end, result, report, status)
+  @intervention = Intervention.new({
+    employee_id: employee_id,
+    building_id: building_id,
+    battery_id: battery_id,
+    column_id: column_id,
+    elevator_id: elevator_id,
+    intervention_start: intervention_start,
+    intervention_end: intervention_end,
+    result: result,
+    report: report,
+    status: status
+  })
+  @intervention.save!
+end
 
 def user_create(email, password, password_confirmation, admin)
   @user = User.new({
