@@ -38,18 +38,18 @@ def init()
     )  
   end
 
-  10.times do
+  40.times do
     intervention_create(
-      1,
-      2,
-      3,
-      4,
-      5,
-      Faker::Date.between(from: '2018-02-23', to: '2021-2-25'),
-      Faker::Date.between(from: '2018-02-23', to: '2021-2-25'),
-      "Success",
+      Faker::Number.between(from: 1, to: 200),
+      Faker::Number.between(from: 1, to: 200),
+      Faker::Number.between(from: 1, to: 200),
+      Faker::Number.between(from: 1, to: 200),
+      Faker::Number.between(from: 1, to: 200),
+      Faker::Date.between(from: '2019-02-23', to: '2020-2-25'),
+      Faker::Date.between(from: '2020-02-25', to: '2021-3-15'),
+      ['Success', 'Failure', 'Incomplete'].sample,
       "Nothing to report",
-      "Complete"
+      ['Pending', 'InProgress', 'Interrupted' , 'Resumed', 'Complete'].sample
     )
   end
 
