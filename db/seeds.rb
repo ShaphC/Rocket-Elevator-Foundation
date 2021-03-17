@@ -139,8 +139,10 @@ def customer_create(company_name, cpy_contact_full_name, cpy_contact_phone, cpy_
     tech_authority_service_full_name: tech_authority_service_full_name, 
     tech_authority_service_phone: tech_authority_service_phone, 
     tech_manager_service_email: tech_manager_service_email, 
-    address: @address,
-    user: @user})
+    user_id: @user.id,
+    address_id: @address.id,
+    user: @user,
+    address: @address})
   @customer.save!
 
   rand(1..3).times do 
@@ -165,6 +167,8 @@ def building_create(adm_contact_full_name, adm_contact_email, adm_contact_phone,
     tech_contact_full_name: tech_contact_full_name, 
     tech_contact_email: tech_contact_email, 
     tech_contact_phone: tech_contact_phone, 
+    customer_id: customer.id,
+    address_id: @address.id,
     customer: customer,
     address: @address})
   @building.save!
@@ -241,6 +245,7 @@ def battery_create(type_building, status, date_commissioning, date_last_inspecti
     certificate_operations: certificate_operations,
     information: information,
     notes: notes,
+    building_id: entity.id,
     building: entity})
   @battery.save!
 
@@ -263,6 +268,7 @@ def column_create(type_building, number_floors_served, status, information, note
     status: status,
     information: information,
     notes: notes,
+    battery_id: battery.id,
     battery: battery})
   @column.save!
 
@@ -293,6 +299,7 @@ def elevator_create(serial_number, model, type_building, status, date_commission
     certificate_inspection: certificate_inspection,
     information: information,
     notes: notes,
+    column_id: column.id,
     column: column})
   @elevator.save!
 end
