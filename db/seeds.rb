@@ -231,6 +231,7 @@ def building_detail_create(info_key, value, building)
   @building_detail = BuildingDetail.new({
     info_key: info_key,
     value: value,
+    building_id: building.id,
     building: building})
   @building_detail.save!
 end

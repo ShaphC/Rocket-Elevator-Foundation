@@ -3,7 +3,7 @@ namespace :dbr do
 
   desc "Import data intervention table to fact_intervention table"
   task interventions: :environment do
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
     puts "intervention table to fact_intervention table"
     dwh.exec("TRUNCATE fact_interventions")
     dwh.prepare('to_fact_interventions', 'INSERT INTO fact_interventions (employee_id, building_id, battery_id, column_id, elevator_id, intervention_start, intervention_end, result, report, status, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
