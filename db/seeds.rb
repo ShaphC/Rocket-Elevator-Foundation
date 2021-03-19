@@ -40,10 +40,10 @@ def init()
 
   40.times do
     intervention_create(
-      Faker::Number.between(from: 1, to: 200),
-      Faker::Number.between(from: 1, to: 200),
-      Faker::Number.between(from: 1, to: 200),
-      Faker::Number.between(from: 1, to: 200),
+      Faker::Number.between(from: 1, to: 9),
+      Faker::Number.between(from: 1, to: 40),
+      Faker::Number.between(from: 1, to: 40),
+      Faker::Number.between(from: 1, to: 40),
       Faker::Number.between(from: 1, to: 200),
       Faker::Date.between(from: '2019-02-23', to: '2020-2-25'),
       Faker::Date.between(from: '2020-02-25', to: '2021-3-15'),
