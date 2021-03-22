@@ -1,0 +1,46 @@
+<section id="intervention-form">
+<div class="container">
+    <div class="heading-title heading-dotted text-center">
+        <h2>INTERVENTION <span>FORM</span></h2>
+    </div>
+    <!-- /Title -->
+    <!-- Quote Form -->
+
+    <div class="container form ">
+        <%= form_for(Intervention.new) do |f| %> 
+            <%= f.label :customer %>
+            <%= collection_select :customer, :id, Customer.all, :id, :cpy_contact_full_name %>
+            <input type="hidden" value="contact_send">
+            <div id="building_id" class="col-md-4" style="display:none" >
+                <%= f.label :building %>
+                <%= collection_select :buildings, :id, Building.all, :id, :id %>
+            </div>
+            <div id="battery" class="col-md-4" style="display:none" >
+                <%= f.label :batteries %>
+                <%= collection_select :battery, :id, Battery.all, :id, :id %>
+            </div>
+            <div id="column" class="col-md-4" style="display:none" >
+                <%= f.label :columns %>
+                <%= collection_select :column, :id, Column.all, :id, :id %>
+            </div>
+            <div id="elevator" class="col-md-4" style="display:none" >
+                <%= f.label :elevators %>
+                <%= collection_select :elevator, :id, Elevator.all, :id, :serial_number %>
+            </div>
+            <div id="employee" class="col-md-4" >
+                <%= f.label :employees %>
+                <%= collection_select :employees, :id, Employee.all, :id, :first_name %>
+            </div>
+            <div id="description" class="col-md-12" >
+                <%= f.label :description %>
+                <%= f.text_area :report, :cols => 54, :rows => 6, class:"form-control" %>
+            </div>
+    </div>
+</div>
+<div class="container form col-md-4">
+        <%= submit_tag "SUBMIT" , class: 'btn btn-primary'  %><i class:"fa fa-check"></i>
+        <%# <%= raw recaptcha_tags %> %>
+    </div>
+    </br>
+</div>
+<% end %>

@@ -57,7 +57,7 @@ class LeadsController < ApplicationController
     end
 
     def sendgrid
-        from = Email.new(email: 'Rocketmax.xyz@gmail.com')
+        from = Email.new(email: 'rocketelevators2@gmail.com')
         subject = 'We thank you for contacting Rocket Elevators'
         to = Email.new(email: lead_params[:email])
         content = Content.new(type: 'text/html', value: 

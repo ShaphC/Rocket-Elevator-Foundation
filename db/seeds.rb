@@ -45,6 +45,7 @@ def init()
       Faker::Number.between(from: 1, to: 40),
       Faker::Number.between(from: 1, to: 40),
       Faker::Number.between(from: 1, to: 200),
+      Faker::Number.between(from: 1, to: 9),
       Faker::Date.between(from: '2019-02-23', to: '2020-2-25'),
       Faker::Date.between(from: '2020-02-25', to: '2021-3-15'),
       ['Success', 'Failure', 'Incomplete'].sample,
@@ -85,13 +86,14 @@ end
 
 # Definitions
 
-def intervention_create(employee_id, building_id, battery_id, column_id, elevator_id, intervention_start, intervention_end, result, report, status)
+def intervention_create(author, building_id, battery_id, column_id, elevator_id, employee_id, intervention_start, intervention_end, result, report, status)
   @intervention = Intervention.new({
-    employee_id: employee_id,
+    author: author,
     building_id: building_id,
     battery_id: battery_id,
     column_id: column_id,
     elevator_id: elevator_id,
+    employee_id: employee_id,
     intervention_start: intervention_start,
     intervention_end: intervention_end,
     result: result,
