@@ -3,7 +3,7 @@ namespace :dbr do
 
   desc "Import data intervention table to fact_intervention table"
   task interventions: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
     puts "intervention table to fact_intervention table"
     dwh.exec("TRUNCATE fact_interventions")
     dwh.prepare('to_fact_interventions', 'INSERT INTO fact_interventions (employee_id, building_id, battery_id, column_id, elevator_id, intervention_start, intervention_end, result, report, status, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
@@ -14,8 +14,8 @@ namespace :dbr do
 
   desc "Import data from Quote Table to Fact Quote Table"
   task quotes: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
-    puts "lead table to fact_quote table"
+    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+    puts "quotes table to fact_quote table"
     dwh.exec("TRUNCATE fact_quotes")
     dwh.prepare('to_fact_quotes', 'INSERT INTO fact_quotes (quote_id, creation, company_name, email, nb_elevator, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
     Quote.all.each do |quotes|
@@ -24,7 +24,7 @@ namespace :dbr do
   end
   desc "Import data from Lead Table to Fact Contacts Table"
   task contacts: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
     puts "lead table to fact_contact table"
     dwh.exec("TRUNCATE fact_contacts")
     dwh.prepare('to_fact_contacts', 'INSERT INTO fact_contacts (contact_id, creation_date, company_name, email, project_name, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
@@ -34,7 +34,8 @@ namespace :dbr do
   end
   desc "Import data from product"
   task elevators: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+    puts "elevators table to fact_elevators table"
     dwh.exec("TRUNCATE fact_elevators")
     dwh.prepare('to_fact_elevators', 'INSERT INTO fact_elevators (serial_number, date_commissioning, building_id, customer_id, building_city, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
     Customer.all.each do |customer|    
@@ -52,7 +53,8 @@ namespace :dbr do
   end
   desc "Import data from customers"
   task customers: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "AdrienGobeil_psql", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+    puts "customers table to dim_cusomters table"
     dwh.exec("TRUNCATE dim_customers")
     dwh.prepare('to_dim_customers', 'INSERT INTO dim_customers (creation_date, company_name, fn_cpy_main_ct, email_cpy_main_ct, nb_elevators, customer_city, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
     Customer.all.each do |customer|          
