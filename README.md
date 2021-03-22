@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
 URL for our site http://rocketmax.xyz/
@@ -413,3 +414,6 @@ ReCAPTCHA on Quote form:
 
 
 
+=======
+# Rocket-Elevator-Foundation
+>>>>>>> 1fdea2b9e2857adb22939ebdcbd7094b3da53b3f
