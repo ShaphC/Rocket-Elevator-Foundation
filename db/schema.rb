@@ -131,11 +131,12 @@ ActiveRecord::Schema.define(version: 2021_03_15_160749) do
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "employee_id"
+    t.integer "author"
     t.integer "building_id"
     t.integer "battery_id"
     t.integer "column_id"
     t.integer "elevator_id"
+    t.integer "employee_id"
     t.datetime "intervention_start"
     t.datetime "intervention_end"
     t.string "result"
