@@ -87,9 +87,9 @@ end
 
 # Definitions
 
-def intervention_create(author, customer_id, building_id, battery_id, column_id, elevator_id, employee_id, intervention_start, intervention_end, result, report, status)
+def intervention_create(author_id, customer_id, building_id, battery_id, column_id, elevator_id, employee_id, intervention_start, intervention_end, result, report, status)
   @intervention = Intervention.new({
-    author: author,
+    author_id: author_id,
     customer_id: customer_id,
     building_id: building_id,
     battery_id: battery_id,

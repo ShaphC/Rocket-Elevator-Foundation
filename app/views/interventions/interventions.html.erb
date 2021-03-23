@@ -10,12 +10,12 @@
         <%= form_for(Intervention.new) do |f| %>
             <div id="cusotmer_id"> 
                 <%= f.label :customer %>
-                <%= f.collection_select :customer_id, Customer.all, :id, :cpy_contact_full_name %>
+                <%= f.collection_select :customer_id, Customer.all, :id, :cpy_contact_full_name, {:class => "customer_selection"} %>
             </div>
             <input type="hidden" value="contact_send">
             <div id="building_id" class="col-md-4" >
                 <%= f.label :building %>
-                <%= f.collection_select :building_id, Building.all, :id, :id %>
+                <%= f.collection_select :building_id, Building.all, :id, :id, {:class => "building_selection"} %>
             </div>
             <div id="battery_id" class="col-md-4" >
                 <%= f.label :battery %>
@@ -31,7 +31,7 @@
             </div>
             <div id="employee_id" class="col-md-4" >
                 <%= f.label :employee %>
-                <%= f.collection_select :employee_id, Employee.all, :id, :first_name, :prompt => 'None' %>
+                <%= f.collection_select :employee_id, Employee.all, :id, :first_name, {:prompt => 'None'} %>
             </div>
             <div id="description" class="col-md-12" >
                 <%= f.label :description %>
