@@ -41,6 +41,7 @@ def init()
   40.times do
     intervention_create(
       Faker::Number.between(from: 1, to: 9),
+      Faker::Number.between(from: 1, to: 25),
       Faker::Number.between(from: 1, to: 40),
       Faker::Number.between(from: 1, to: 40),
       Faker::Number.between(from: 1, to: 40),
@@ -86,9 +87,10 @@ end
 
 # Definitions
 
-def intervention_create(author, building_id, battery_id, column_id, elevator_id, employee_id, intervention_start, intervention_end, result, report, status)
+def intervention_create(author, customer_id, building_id, battery_id, column_id, elevator_id, employee_id, intervention_start, intervention_end, result, report, status)
   @intervention = Intervention.new({
     author: author,
+    customer_id: customer_id,
     building_id: building_id,
     battery_id: battery_id,
     column_id: column_id,

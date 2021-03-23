@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'pages/commercial'
   get 'pages/404'
   get 'quotes/quotes'
-  get 'interventions/interventions'
   devise_for :users
   
   root to: "home#index"
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
   get "/home"         => 'home#index'
   get '/404'          => 'pages#404'
   get '/quotes'       => 'quotes#quotes'
-  get '/intervention'=> 'interventions#interventions'
+  get '/intervention' => 'interventions#interventions'
   get '/residential'  => 'pages#residential'
   get '/news'         => 'home#news'
   get '/clients'      => 'home#clients'
@@ -24,7 +23,7 @@ Rails.application.routes.draw do
   get '/portfolio'    => 'home#portfolio'
   get '/charts'       => 'charts#dashboard'
   post '/leads'       => 'leads#create'
-  post '/quotes'      => 'quotes#create' 
+  post '/quotes'      => 'quotes#create'
 
   # get '/watson'       => 'watson#textToSpeech'
 

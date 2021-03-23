@@ -2,11 +2,12 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
     create_table :interventions do |t|
       t.integer :author
-      t.integer :building_id
-      t.integer :battery_id
-      t.integer :column_id
-      t.integer :elevator_id
-      t.integer :employee_id
+      t.references :customer
+      t.references :building
+      t.references :battery
+      t.references :column
+      t.references :elevator
+      t.references :employee
       t.datetime :intervention_start
       t.datetime :intervention_end
       t.string :result
