@@ -7,29 +7,31 @@
     <!-- I Form -->
 
     <div class="container form ">
-        <%= form_for(Intervention.new) do |f| %> 
-            <%= f.label :customer %>
-            <%= collection_select :customer, :id, Customer.all, :id, :cpy_contact_full_name %>
-            <input type="hidden" value="contact_send">
-            <div id="building_id" class="col-md-4" style="display:none" >
-                <%= f.label :building %>
-                <%= collection_select :buildings, :id, Building.all, :id, :id %>
+        <%= form_for(Intervention.new) do |f| %>
+            <div id="cusotmer_id"> 
+            <%= f.label :customer_id %>
+            <%= collection_select :customer_id, :id, Customer.all, :id, :cpy_contact_full_name %>
             </div>
-            <div id="battery" class="col-md-4" style="display:none" >
+            <input type="hidden" value="contact_send">
+            <div id="building_id" class="col-md-4" >
+                <%= f.label :building %>
+                <%= collection_select :building, :id, Building.all, :id, :id %>
+            </div>
+            <div id="battery_id" class="col-md-4" >
                 <%= f.label :batteries %>
                 <%= collection_select :battery, :id, Battery.all, :id, :id %>
             </div>
-            <div id="column" class="col-md-4" style="display:none" >
+            <div id="column_id" class="col-md-4" >
                 <%= f.label :columns %>
                 <%= collection_select :column, :id, Column.all, :id, :id %>
             </div>
-            <div id="elevator" class="col-md-4" style="display:none" >
+            <div id="elevator_id" class="col-md-4" >
                 <%= f.label :elevators %>
-                <%= collection_select :elevator, :id, Elevator.all, :id, :serial_number %>
+                <%= collection_select :elevator, :id, Elevator.all, :id, :id %>
             </div>
-            <div id="employee" class="col-md-4" >
-                <%= f.label :employees %>
-                <%= collection_select :employees, :id, Employee.all, :id, :first_name %>
+            <div id="employee_id" class="col-md-4" >
+                <%= f.label :employee %>
+                <%= collection_select :employee, :id, Employee.all, :id, :first_name, {:selected => "None"} %>
             </div>
             <div id="description" class="col-md-12" >
                 <%= f.label :description %>

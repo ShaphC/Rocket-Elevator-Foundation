@@ -3,7 +3,7 @@ class ChartsController < ApplicationController
   
 #   def sync
 #     pp "inside"
-#       dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "MaximeAuger_psql", user: "codeboxx", password: "Codeboxx1!")
+#       dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
 
 #       dwh.exec("TRUNCATE fact_elevators")
 
