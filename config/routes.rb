@@ -47,6 +47,11 @@ Rails.application.routes.draw do
   get "/maps" => "maps#map"
     resources :quotes, only: [:new, :create]
     resources :interventions, only: [:new, :create]
+    # resources :interventions do
+    #   collection do
+    #     get 'get_buildings', to "interventions#get_buildings"
+    #   end
+    # end
   end
 
   Rails.application.routes.draw do

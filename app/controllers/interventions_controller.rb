@@ -4,6 +4,11 @@ class InterventionsController < ApplicationController
         @intervention = Intervention.new
     end
 
+    def get_buildings
+        @customer = Customer.find params[:customer_id]
+        @buildings = @customer.buildings
+    end
+
     def create
 
         # ZENDESK Quotes 1/2
@@ -18,13 +23,15 @@ class InterventionsController < ApplicationController
         @intervention = Intervention.new(intervention_params)
 
         # if !verify_recaptcha(model: @intervention)
+        puts "#{current_user.id} is the author ID"
+        @intervention.author_id = current_user.id
         @intervention.status = "Pending"
         @intervention.save!
 
         # fact_intervention()
         
         # ZENDESK 2/2
-        # ZendeskAPI::Ticket.create!(client, :subject => "Subject: TBA from TBA\n\n", :comment => {:value => "The requestor is (TBA) for:\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee: #{@intervention.employee_id}\n Description: #{intervention.description}"}, :priority => "normal", :type => "problem")
+        # ZendeskAPI::Ticket.create!(client, :subject => "Subject: TBA from TBA\n\n", :comment => {:value => "The requestor is (TBA) for:\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
         # END Zendesk 2/2
 
         redirect_to main_app.root_path, notice: "Intervention Sent!"
@@ -46,7 +53,7 @@ class InterventionsController < ApplicationController
         
     end
     def intervention_params
-        params.require(:intervention).permit(:customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id, :report, :status)
+        params.require(:intervention).permit(:customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id, :report)
     end
 
 end
