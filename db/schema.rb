@@ -132,12 +132,12 @@ ActiveRecord::Schema.define(version: 2021_03_15_160749) do
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "author"
-    t.string "customer_id"
-    t.integer "building_id"
-    t.integer "battery_id"
-    t.integer "column_id"
-    t.integer "elevator_id"
-    t.integer "employee_id"
+    t.bigint "customer_id"
+    t.bigint "building_id"
+    t.bigint "battery_id"
+    t.bigint "column_id"
+    t.bigint "elevator_id"
+    t.bigint "employee_id"
     t.datetime "intervention_start"
     t.datetime "intervention_end"
     t.string "result"
@@ -145,6 +145,12 @@ ActiveRecord::Schema.define(version: 2021_03_15_160749) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["battery_id"], name: "index_interventions_on_battery_id"
+    t.index ["building_id"], name: "index_interventions_on_building_id"
+    t.index ["column_id"], name: "index_interventions_on_column_id"
+    t.index ["customer_id"], name: "index_interventions_on_customer_id"
+    t.index ["elevator_id"], name: "index_interventions_on_elevator_id"
+    t.index ["employee_id"], name: "index_interventions_on_employee_id"
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

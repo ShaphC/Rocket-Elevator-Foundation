@@ -46,7 +46,7 @@ class InterventionsController < ApplicationController
         
     end
     def intervention_params
-        params.require(:intervention).permit(:customer_id, :building, :column, :elevator, :employee, :report, :status)
+        params.require(:intervention).permit(:customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id, :report, :status)
     end
 
 end

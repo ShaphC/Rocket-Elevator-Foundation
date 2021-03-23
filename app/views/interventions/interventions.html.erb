@@ -9,29 +9,29 @@
     <div class="container form ">
         <%= form_for(Intervention.new) do |f| %>
             <div id="cusotmer_id"> 
-            <%= f.label :customer_id %>
-            <%= collection_select :customer_id, :id, Customer.all, :id, :cpy_contact_full_name %>
+                <%= f.label :customer %>
+                <%= f.collection_select :customer_id, Customer.all, :id, :cpy_contact_full_name %>
             </div>
             <input type="hidden" value="contact_send">
             <div id="building_id" class="col-md-4" >
                 <%= f.label :building %>
-                <%= collection_select :building, :id, Building.all, :id, :id %>
+                <%= f.collection_select :building_id, Building.all, :id, :id %>
             </div>
             <div id="battery_id" class="col-md-4" >
-                <%= f.label :batteries %>
-                <%= collection_select :battery, :id, Battery.all, :id, :id %>
+                <%= f.label :battery %>
+                <%= f.collection_select :battery_id, Battery.all, :id, :id %>
             </div>
             <div id="column_id" class="col-md-4" >
                 <%= f.label :columns %>
-                <%= collection_select :column, :id, Column.all, :id, :id %>
+                <%= f.collection_select :column_id, Column.all, :id, :id %>
             </div>
             <div id="elevator_id" class="col-md-4" >
                 <%= f.label :elevators %>
-                <%= collection_select :elevator, :id, Elevator.all, :id, :id %>
+                <%= f.collection_select :elevator_id, Elevator.all, :id, :id %>
             </div>
             <div id="employee_id" class="col-md-4" >
                 <%= f.label :employee %>
-                <%= collection_select :employee, :id, Employee.all, :id, :first_name, {:selected => "None"} %>
+                <%= f.collection_select :employee_id, Employee.all, :id, :first_name, :prompt => 'None' %>
             </div>
             <div id="description" class="col-md-12" >
                 <%= f.label :description %>
