@@ -57,9 +57,9 @@ class LeadsController < ApplicationController
     end
 
     def sendgrid
-        from = Email.new(email: 'Rocketmax.xyz@gmail.com')
-        subject = 'We thank you for contacting Rocket Elevators'
+        from = Email.new(email: 'rocketelevators2@gmail.com')
         to = Email.new(email: lead_params[:email])
+        subject = 'We thank you for contacting Rocket Elevators'
         content = Content.new(type: 'text/html', value: 
             "<html>
                 <body>
@@ -89,7 +89,7 @@ class LeadsController < ApplicationController
 
     private
     def fact_contacts
-        #   dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "AdrienGobeil_psql", user: "postgres", password: "postgres")
+        #   dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
         #   dwh = PG::Connection.new(port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
         dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
         dwh.exec("TRUNCATE fact_contacts")

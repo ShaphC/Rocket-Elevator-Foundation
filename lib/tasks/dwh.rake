@@ -15,6 +15,7 @@ namespace :dbr do
   desc "Import data from Quote Table to Fact Quote Table"
   task quotes: :environment do
     dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+
     puts "quotes table to fact_quote table"
     dwh.exec("TRUNCATE fact_quotes")
     dwh.prepare('to_fact_quotes', 'INSERT INTO fact_quotes (quote_id, creation, company_name, email, nb_elevator, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')

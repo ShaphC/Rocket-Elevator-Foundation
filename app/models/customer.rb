@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
     belongs_to :user
+    has_many :intervention
     has_many :buildings
     has_one :address
 
