@@ -1,12 +1,71 @@
 class InterventionsController < ApplicationController
 
-    def new
+    def get_buildings
         @intervention = Intervention.new
+        @customers = Customer.all
+        @buildings = []
+        if params[:choice].present?
+            @buildings = Customer.find(params[:choice]).buildings
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {buildings: @buildings}
+                }
+            end
+        end
     end
 
-    def get_buildings
-        @customer = Customer.find params[:customer_id]
-        @buildings = @customer.buildings
+    def get_batteries
+        @intervention = Intervention.new
+        @buildings = Building.all
+        @batteries = []
+        if params[:choice].present?
+            @batteries = Building.find(params[:choice]).batteries
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {batteries: @batteries}
+                }
+            end
+        end
+    end
+
+    def get_columns
+        @intervention = Intervention.new
+        @batteries = Battery.all
+        @columns = []
+        if params[:choice].present?
+            @columns = Battery.find(params[:choice]).columns
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {columns: @columns}
+                }
+            end
+        end
+    end
+
+    def get_elevators
+        @intervention = Intervention.new
+        @columns = Column.all
+        @elevators = []
+        if params[:choice].present?
+            @elevators = Column.find(params[:choice]).elevators
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {elevators: @elevators}
+                }
+            end
+        end
+    end
+
+    def new
+        @intervention = Intervention.new
     end
 
     def create
@@ -24,17 +83,18 @@ class InterventionsController < ApplicationController
 
         # if !verify_recaptcha(model: @intervention)
         puts "#{current_user.id} is the author ID"
-        @intervention.author_id = current_user.id
+        @intervention.author = current_user.id
         @intervention.status = "Pending"
         @intervention.save!
 
-        # fact_intervention()
+        fact_intervention()
         
         # ZENDESK 2/2
-        # ZendeskAPI::Ticket.create!(client, :subject => "Subject: TBA from TBA\n\n", :comment => {:value => "The requestor is (TBA) for:\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
+        ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{current_user.id}\n\n", :comment => {:value => "The requestor is #{current_user.id} for #{@intervention.employee_id}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee ID: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
         # END Zendesk 2/2
 
-        redirect_to main_app.root_path, notice: "Intervention Sent!"
+        # redirect_to main_app.root_path, notice: "Intervention Sent!"
+        redirect_to "/admin", notice: "Intervention Sent!"
         # else    
         #     redirect_to "/intervention", notice: "Invalid captcha!"
         # end
