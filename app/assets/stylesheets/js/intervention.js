@@ -3,6 +3,8 @@ $(document).ready(function() {
   $values2 = $(".building_selection,.battery_selection,.column_selection,.elevator_selection")
   $values3 = $(".battery_selection,.column_selection,.elevator_selection")
   $values4 = $(".column_selection,.elevator_selection")
+  $values5 = $(".battery_selection")
+  $values6 = $(".column_selection")
   //This is for Buildings
   $(".customer_selection").change(function(){
       $values.hide();
@@ -97,6 +99,7 @@ $(document).ready(function() {
                           for(var i=0; i< columns.length; i++){
                             $(".column_selection").append('<option value="' + columns[i]["id"] + '">' + columns[i]["id"] + '</option>');
                             console.log("test #8")
+                            $values5.val("");                                 
                             //This is for elevators
                             $(".column_selection").change(function(){
                               console.log("test #2")
@@ -126,7 +129,11 @@ $(document).ready(function() {
                                   console.log("test #7")
                                   for(var i=0; i< elevators.length; i++){
                                     $(".elevator_selection").append('<option value="' + elevators[i]["id"] + '">' + elevators[i]["id"] + '</option>');
-                                    console.log("test #8")                                   
+                                    console.log("test #8")  
+                                    $(".elevator_selection").change(function(){
+                                      console.log("column test")
+                                      $values6.val("");     
+                                    });                            
                                   }
                                 }
                               });
