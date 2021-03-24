@@ -1,12 +1,28 @@
 class InterventionsController < ApplicationController
 
-    def new
+    def get_buildings
         @intervention = Intervention.new
+        @customers = Customer.all
+        @buildings = []
+        if params[:choice].present?
+            @buildings = Customer.find(params[:choice]).buildings
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {buildings: @buildings}
+                }
+            end
+        end
     end
 
-    def get_buildings
-        @customer = Customer.find params[:customer_id]
-        @buildings = @customer.buildings
+    # def get_buildings_two
+    #     @buildings = Buildings.where(customer_id: params["customer_id"])
+    #     render json: {buildings: @buildings}
+    # end
+
+    def new
+        @intervention = Intervention.new
     end
 
     def create
@@ -31,7 +47,7 @@ class InterventionsController < ApplicationController
         # fact_intervention()
         
         # ZENDESK 2/2
-        # ZendeskAPI::Ticket.create!(client, :subject => "Subject: TBA from TBA\n\n", :comment => {:value => "The requestor is (TBA) for:\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
+        ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{current_user.id}\n\n", :comment => {:value => "The requestor is #{current_user.id} for #{@intervention.employee_id}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee ID: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
         # END Zendesk 2/2
 
         redirect_to main_app.root_path, notice: "Intervention Sent!"

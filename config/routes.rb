@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/contact'      => 'home#contact'
   get '/portfolio'    => 'home#portfolio'
   get '/charts'       => 'charts#dashboard'
+  get '/get_buildings'=> 'interventions#get_buildings'
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
 
@@ -41,17 +42,18 @@ Rails.application.routes.draw do
     post "/signin"     => "devise/sessions#new" 
     post "/signout"    => "devise/sessions#destroy"
     post "/changepassword" => "devise/passwords#new"
+
   end
 
   Rails.application.routes.draw do
   get "/maps" => "maps#map"
     resources :quotes, only: [:new, :create]
     resources :interventions, only: [:new, :create]
-    # resources :interventions do
-    #   collection do
-    #     get 'get_buildings', to "interventions#get_buildings"
-    #   end
-    # end
+    resources :interventions do
+      collection do
+          get '/get_buildings', to: 'interventions#get_buildings'
+      end
+    end
   end
 
   Rails.application.routes.draw do
