@@ -16,13 +16,78 @@ class InterventionsController < ApplicationController
         end
     end
 
-    # def get_buildings_two
-    #     @buildings = Buildings.where(customer_id: params["customer_id"])
-    #     render json: {buildings: @buildings}
-    # end
+    def get_batteries
+        @intervention = Intervention.new
+        @buildings = Building.all
+        @batteries = []
+        if params[:choice].present?
+            @batteries = Building.find(params[:choice]).batteries
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {batteries: @batteries}
+                }
+            end
+        end
+    end
+
+    def get_columns
+        @intervention = Intervention.new
+        @batteries = Battery.all
+        @columns = []
+        if params[:choice].present?
+            @columns = Battery.find(params[:choice]).columns
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {columns: @columns}
+                }
+            end
+        end
+    end
+
+    def get_elevators
+        @intervention = Intervention.new
+        @columns = Column.all
+        @elevators = []
+        if params[:choice].present?
+            @elevators = Column.find(params[:choice]).elevators
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {elevators: @elevators}
+                }
+            end
+        end
+    end
+
+    def get_buildings_two
+        @buildings = Buildings.where(customer_id: params["customer_id"])
+        render json: {buildings: @buildings}
+    end
 
     def new
         @intervention = Intervention.new
+        @customers = Customer.all
+        @buildings = []
+        if params[:choice].present?
+            @buildings = Customer.find(params[:choice]).buildings
+        end
+        if request.xhr?
+            respond_to do |format|
+                format.json {
+                render json: {buildings: @buildings}
+                }
+            end
+        end
+
+        if params[:choice].present?
+
+        end
+
     end
 
     def create

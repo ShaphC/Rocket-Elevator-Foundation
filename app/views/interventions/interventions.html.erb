@@ -15,19 +15,19 @@
             <%# <input type="hidden" value="contact_send"> %>
             <div id="building_id" class="col-md-4" >
                 <%= f.label :building %>
-                <%= f.collection_select :building_id, Building.all, :id, :id, {:class => "building_selection"} %>
+                <%= f.collection_select :building_id, Building.all, :id, :id, {:prompt => "Select a Building"}, {:class => "building_selection"} %>
             </div>
             <div id="battery_id" class="col-md-4" >
                 <%= f.label :battery %>
-                <%= f.collection_select :battery_id, Battery.all, :id, :id %>
+                <%= f.collection_select :battery_id, Battery.all, :id, :id, {:prompt => "Select a Battery"}, {:class => "battery_selection"} %>
             </div>
             <div id="column_id" class="col-md-4" >
                 <%= f.label :columns %>
-                <%= f.collection_select :column_id, Column.all, :id, :id %>
+                <%= f.collection_select :column_id, Column.all, :id, :id, {:prompt => "Select a Column"}, {:class => "column_selection"} %>
             </div>
             <div id="elevator_id" class="col-md-4" >
                 <%= f.label :elevators %>
-                <%= f.collection_select :elevator_id, Elevator.all, :id, :id %>
+                <%= f.collection_select :elevator_id, Elevator.all, :id, :id, {:prompt => "Select a Elevator"}, {:class => "elevator_selection"} %>
             </div>
             <div id="employee_id" class="col-md-4" >
                 <%= f.label :employee %>
