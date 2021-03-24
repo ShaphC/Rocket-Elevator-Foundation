@@ -1,7 +1,12 @@
 $(document).ready(function() {
   $values = $("#building_id,#battery_id,#column_id,#elevator_id").hide()
+  $values2 = $(".building_selection,.battery_selection,.column_selection,.elevator_selection")
+  $values3 = $(".battery_selection,.column_selection,.elevator_selection")
+  $values4 = $(".column_selection,.elevator_selection")
   //This is for Buildings
   $(".customer_selection").change(function(){
+      $values.hide();
+      $values2.empty();
       console.log("test #2")
       var choice = $(this).val();
       console.log(choice)
@@ -32,6 +37,7 @@ $(document).ready(function() {
             console.log("test #8")
             //This is for Batteries
             $(".building_selection").change(function(){
+              $values3.empty();
               console.log("test #9")
               var choice = $(this).val();
               console.log(choice)
@@ -62,6 +68,7 @@ $(document).ready(function() {
                     console.log("test #14")
                     //This is for Columns
                     $(".battery_selection").change(function(){
+                      $values4.empty();
                       console.log("test #2")
                       var choice = $(this).val();
                       console.log(choice)

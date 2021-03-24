@@ -64,30 +64,8 @@ class InterventionsController < ApplicationController
         end
     end
 
-    def get_buildings_two
-        @buildings = Buildings.where(customer_id: params["customer_id"])
-        render json: {buildings: @buildings}
-    end
-
     def new
         @intervention = Intervention.new
-        @customers = Customer.all
-        @buildings = []
-        if params[:choice].present?
-            @buildings = Customer.find(params[:choice]).buildings
-        end
-        if request.xhr?
-            respond_to do |format|
-                format.json {
-                render json: {buildings: @buildings}
-                }
-            end
-        end
-
-        if params[:choice].present?
-
-        end
-
     end
 
     def create
