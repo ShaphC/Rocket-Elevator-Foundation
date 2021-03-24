@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_160749) do
+ActiveRecord::Schema.define(version: 2021_03_24_192540) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type_address"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_160749) do
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "author_id"
+    t.bigint "author"
     t.bigint "customer_id", null: false
     t.bigint "building_id", null: false
     t.bigint "battery_id"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_160749) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_interventions_on_author_id"
+    t.index ["author"], name: "index_interventions_on_author"
     t.index ["battery_id"], name: "index_interventions_on_battery_id"
     t.index ["building_id"], name: "index_interventions_on_building_id"
     t.index ["column_id"], name: "index_interventions_on_column_id"
@@ -235,5 +235,5 @@ ActiveRecord::Schema.define(version: 2021_03_15_160749) do
   add_foreign_key "interventions", "customers"
   add_foreign_key "interventions", "elevators"
   add_foreign_key "interventions", "employees"
-  add_foreign_key "interventions", "employees", column: "author_id"
+  add_foreign_key "interventions", "employees", column: "author"
 end

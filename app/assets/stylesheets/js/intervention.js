@@ -1,4 +1,35 @@
 $(document).ready(function() {
+  /*User cannot submit without picking a Customer, Building, Employee 
+  and atleast a Battery, Column or Elevator*/
+  $("#intervention-form").submit(function(event) {
+    //Sets the required field to a variable
+    var a = $(".customer_selection").val();
+    var b = $(".building_selection").val();
+    var c = $(".battery_selection").val();
+    var d = $(".employee_selection").val();
+    //Sends an alert if the specified field's value is empty
+    if(a == "") 
+    {
+      event.preventDefault();
+      alert("Select a Customer");
+    } 
+    else if (b == "") 
+    {
+      event.preventDefault();
+      alert("Select a Building");
+    }
+    else if (c == "")
+    {
+      event.preventDefault();
+      alert("Select a Battery");
+    }
+    else if (d == "")
+    {
+      event.preventDefault();
+      alert("Select an Employee");
+    }
+
+  });
   //Hides the other fields on startup
   $fields = $("#building_id,#battery_id,#column_id,#elevator_id").hide();
   //Holds all the data for fields that need to change based on if a previous field changes
@@ -12,6 +43,8 @@ $(document).ready(function() {
   $fields5 = $("#column_id,#elevator_id");
   //This can get Buildings
   $(".customer_selection").change(function(){
+    var o = $(".employee_selection").val();
+    console.log(o)
       
     // $fields.hide();
       
@@ -44,7 +77,7 @@ $(document).ready(function() {
         //Empties the Building field
         $(".building_selection").empty();
         //Adds the select option into the field
-        $(".building_selection").append('<option value="">Select a Building</option>');
+        $(".building_selection").append('<option value="">Select a Building*</option>');
         // Takes each value returned and adds them into the field
         for(var i=0; i< buildings.length; i++){
           $(".building_selection").append('<option value="' + buildings[i]["id"] + '">' + buildings[i]["id"] + '</option>');
@@ -74,7 +107,7 @@ $(document).ready(function() {
                 var batteries = response["batteries"];
                 $(".battery_selection").empty();
                 // console.log("test #12")
-                $(".battery_selection").append('<option value="">Select a Battery</option>');
+                $(".battery_selection").append('<option value="">Select a Battery*</option>');
                 // console.log("test #13")
                 for(var i=0; i< batteries.length; i++){
                   $(".battery_selection").append('<option value="' + batteries[i]["id"] + '">' + batteries[i]["id"] + '</option>');
@@ -117,7 +150,7 @@ $(document).ready(function() {
                             var choice = $(this).val();
                             console.log(choice)
                             if (choice == '') {
-                              //This can stay as elevator_id because it's the only one
+                              //This can stay as elevator_id because it's the only one that needs to be hidden
                               $("#elevator_id").hide();
                             } else {
                               $("#elevator_id").show();
@@ -131,16 +164,12 @@ $(document).ready(function() {
                                 console.error('AJAX Error: ' + status + error);
                               },
                               success: function (response) {
-                                // console.log("test #5")
                                 console.log(response);
                                 var elevators = response["elevators"];
                                 $(".elevator_selection").empty();
-                                // console.log("test #6")
                                 $(".elevator_selection").append('<option value="">Select an Elevator</option>');
-                                // console.log("test #7")
                                 for(var i=0; i< elevators.length; i++){
                                   $(".elevator_selection").append('<option value="' + elevators[i]["id"] + '">' + elevators[i]["id"] + '</option>');
-                                  // console.log("test #8")  
                                   $(".elevator_selection").change(function(){
                                     //When an elevator is selected it clears the columns
                                     $values4.val("");     

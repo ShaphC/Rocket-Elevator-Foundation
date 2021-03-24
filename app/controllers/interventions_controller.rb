@@ -83,7 +83,7 @@ class InterventionsController < ApplicationController
 
         # if !verify_recaptcha(model: @intervention)
         puts "#{current_user.id} is the author ID"
-        @intervention.author_id = current_user.id
+        @intervention.author = current_user.id
         @intervention.status = "Pending"
         @intervention.save!
 
@@ -94,7 +94,7 @@ class InterventionsController < ApplicationController
         # END Zendesk 2/2
 
         # redirect_to main_app.root_path, notice: "Intervention Sent!"
-        redirect_to "/admin", notice: "Inntervention Sent!"
+        redirect_to "/admin", notice: "Intervention Sent!"
         # else    
         #     redirect_to "/intervention", notice: "Invalid captcha!"
         # end
