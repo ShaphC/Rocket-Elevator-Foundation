@@ -87,13 +87,14 @@ class InterventionsController < ApplicationController
         @intervention.status = "Pending"
         @intervention.save!
 
-        # fact_intervention()
+        fact_intervention()
         
         # ZENDESK 2/2
         ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{current_user.id}\n\n", :comment => {:value => "The requestor is #{current_user.id} for #{@intervention.employee_id}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee ID: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
         # END Zendesk 2/2
 
-        redirect_to main_app.root_path, notice: "Intervention Sent!"
+        # redirect_to main_app.root_path, notice: "Intervention Sent!"
+        redirect_to "/admin", notice: "Inntervention Sent!"
         # else    
         #     redirect_to "/intervention", notice: "Invalid captcha!"
         # end
