@@ -84,6 +84,7 @@ class InterventionsController < ApplicationController
         # if !verify_recaptcha(model: @intervention)
         puts "#{current_user.id} is the author ID"
         @intervention.author = current_user.id
+        @intervention.result = "Incomplete"
         @intervention.status = "Pending"
         @intervention.save!
 
