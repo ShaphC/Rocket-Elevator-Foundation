@@ -1,3 +1,7 @@
+<% if !current_user || !current_user.admin %>
+    <%= redirect_to main_app.root_path %>
+<% end %>
+
 <section id="intervention-form">
 <div class="container">
     <div class="heading-title heading-dotted text-center">
@@ -8,30 +12,30 @@
 
     <div class="container form ">
         <%= form_for(Intervention.new) do |f| %>
-            <div id="cusotmer_id"> 
+            <div id="customer_id"> 
                 <%= f.label :customer %>
-                <%= f.collection_select :customer_id, Customer.all, :id, :cpy_contact_full_name, {:class => "customer_selection"} %>
+                <%= f.collection_select :customer_id, Customer.all, :id, :cpy_contact_full_name, {:prompt => "Select a Customer*"}, {:class => "customer_selection"} %>
             </div>
-            <input type="hidden" value="contact_send">
+            <%# <input type="hidden" value="contact_send"> %>
             <div id="building_id" class="col-md-4" >
                 <%= f.label :building %>
-                <%= f.collection_select :building_id, Building.all, :id, :id, {:class => "building_selection"} %>
+                <%= f.collection_select :building_id, Building.all, :id, :id, {:prompt => "Select a Building"}, {:class => "building_selection"} %>
             </div>
             <div id="battery_id" class="col-md-4" >
                 <%= f.label :battery %>
-                <%= f.collection_select :battery_id, Battery.all, :id, :id %>
+                <%= f.collection_select :battery_id, Battery.all, :id, :id, {:prompt => "Select a Battery"}, {:class => "battery_selection"} %>
             </div>
             <div id="column_id" class="col-md-4" >
                 <%= f.label :columns %>
-                <%= f.collection_select :column_id, Column.all, :id, :id %>
+                <%= f.collection_select :column_id, Column.all, :id, :id, {:prompt => "Select a Column"}, {:class => "column_selection"} %>
             </div>
             <div id="elevator_id" class="col-md-4" >
                 <%= f.label :elevators %>
-                <%= f.collection_select :elevator_id, Elevator.all, :id, :id %>
+                <%= f.collection_select :elevator_id, Elevator.all, :id, :id, {:prompt => "Select a Elevator"}, {:class => "elevator_selection"} %>
             </div>
             <div id="employee_id" class="col-md-4" >
                 <%= f.label :employee %>
-                <%= f.collection_select :employee_id, Employee.all, :id, :first_name, {:prompt => 'None'} %>
+                <%= f.collection_select :employee_id, Employee.all, :id, :first_name, {:prompt => 'None'}, {:class => "employee_selection"} %>
             </div>
             <div id="description" class="col-md-12" >
                 <%= f.label :description %>
