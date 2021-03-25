@@ -42,7 +42,7 @@ class QuotesController < ApplicationController
     private
 
     def fact_quotes
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "dwh_scharles", user: "codeboxx", password: "Codeboxx1!")
       dwh.exec("TRUNCATE fact_quotes")
 
 

@@ -104,7 +104,7 @@ class InterventionsController < ApplicationController
     private
 
     def fact_intervention
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "dwh_scharles", user: "codeboxx", password: "Codeboxx1!")
       dwh.exec("TRUNCATE fact_interventions")
 
       dwh.prepare('to_fact_interventions', 'INSERT INTO fact_interventions (building_id, battery_id, column_id, elevator_id, employee_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
