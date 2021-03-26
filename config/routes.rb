@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   get '/get_batteries'=> 'interventions#get_batteries'
   get '/get_columns'  => 'interventions#get_columns'
   get '/get_elevators'=> 'interventions#get_elevators'
-  # get '/new'     => 'interventions#new'
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
 

@@ -54,7 +54,7 @@ namespace :dbr do
   end
   desc "Import data from customers"
   task customers: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "dwh_scharles", user: "codeboxx", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "dwh_scharles", user: "codeboxx", password: "Codeboxx1!")
     puts "customers table to dim_cusomters table"
     dwh.exec("TRUNCATE dim_customers")
     dwh.prepare('to_dim_customers', 'INSERT INTO dim_customers (creation_date, company_name, fn_cpy_main_ct, email_cpy_main_ct, nb_elevators, customer_city, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
