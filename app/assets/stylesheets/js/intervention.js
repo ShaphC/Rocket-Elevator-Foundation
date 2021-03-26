@@ -112,7 +112,7 @@ $(document).ready(function() {
                 console.log(response);
                 var batteries = response["batteries"];
                 $(".battery_selection").empty();
-                $(".battery_selection").append('<option value="">None</option>');
+                $(".battery_selection").append('<option value=""></option>');
                 for(var i=0; i< batteries.length; i++){
                   $(".battery_selection").append('<option value="' + batteries[i]["id"] + '">' + batteries[i]["id"] + '</option>');
 

@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   get "/home"         => 'home#index'
   get '/404'          => 'pages#404'
   get '/quotes'       => 'quotes#quotes'
-  get '/intervention' => 'interventions#interventions'
+
+  #Keep users that aren't admin from going directly to Intervention
+  authenticate :user, ->(user) { user.employee_role? } do
+    get '/intervention' => 'interventions#interventions'
+  end
+  
   get '/residential'  => 'pages#residential'
   get '/news'         => 'home#news'
   get '/clients'      => 'home#clients'
