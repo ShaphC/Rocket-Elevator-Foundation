@@ -162,8 +162,8 @@ __2. Sengrid account | Gmail account__
 ![](app/assets/images/readme/sendgrid_logo.png) | ![](app/assets/images/readme/gmail_logo.png)
 ------------ | -------------
 Sendgrid website: https://sendgrid.com | Gmail website: https://www.gmail.com
-Sendgrid account email: rocketmax.xyz@gmail.com | Gmail account email: Rocketmax.xyz@gmail.com
-Sendgrid account password: R0cketm4x.xyz2021 | Gmail account password : R0cketm4x.xyz
+Sendgrid account email: rocketelevators2@gmail.com | Gmail account email: rocketelevators2@gmail.com
+Sendgrid account password: Pa$$w0rd! | Gmail account password : Pa$$w0rd!
 
 <br />
 
@@ -214,7 +214,7 @@ include SendGrid
 require 'json'
 
 def sendgrid
-      from = Email.new(email: 'Rocketmax.xyz@gmail.com')
+      from = Email.new(email: 'rocketelevators2@gmail.com')
       subject = 'We thank you for contacting Rocket Elevators'
       to = Email.new(email: lead_params[:email])
       content = Content.new(type: 'text/html', value: 
