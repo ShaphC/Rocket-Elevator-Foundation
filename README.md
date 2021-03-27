@@ -310,11 +310,11 @@ Use of IBM Watson to say messages from the film Star Wars, automatically and ran
 
   ZenDesk website and account informations: 
   - Webpage: https://www.zendesk.com/
-  - Account name:  Rocket Elevators
-  - Primary email: danigrum@gmail.com
-  - Password: rocketelevators
+  - Account name:  rocket elevators
+  - Primary email: rocketelevators2@gmail.com
+  - Password: Pa$$w0rd!
   - Organization: Rocket Elevators
-  - Rocket Elevators ZenDesk page: https://rocketelevators2021.zendesk.com/
+  - Rocket Elevators ZenDesk page: https://rocketelevators3934.zendesk.com/
 
 The ZenDesk platform can be powered by a call to the API and the software can then process requests depending on the type.
 
