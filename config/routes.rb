@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/quotes'       => 'quotes#quotes'
 
   #Keep users that aren't admin from going directly to Intervention
-  authenticate :user, ->(user) { user.employee_role? } do
+  authenticate :user, ->(user) { user.employee } do
     get '/intervention' => 'interventions#interventions'
   end
   
