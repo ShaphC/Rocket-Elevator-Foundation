@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
-URL for our site http://recharles.com/
+Site URL http://recharles.com/
 
 
 📚 Instructions to acces to the admin panel:
