@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
-URL for our site http://rocketmax.xyz/
+URL for our site http://recharles.com/
 
 
 📚 Instructions to acces to the admin panel:
@@ -20,29 +20,11 @@ To log as Admin:
 # Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
 
 
-## CodeBoxx Odissey - Week 7 - Life is a Web Service
+## CodeBoxx Odissey - Week 8 - Consolidation
 
------------------------------------------------------------------------------------------------
+To access the Postman End Points
 
-### OUR TEAM:
-- Adrien Gobeil
-- Daniela Grumbach Kinder
-- Etienne Gonthier-Lapointe
-- Maxime Auger
-- Shaphan Charles
-
------------------------------------------------------------------------------------------------
-
-To improve Rocket Elevators service and products offering, we implemented seven APIs, which will are some of the most used products on the market:
-* Google Maps
-* Twilio
-* Slack
-* DropBox
-* SendGrid
-* IBM Watson + (Star Wars features)
-* ZenDesk
-* Spotfy
-* ReCaptcha
+https://www.getpostman.com/collections/5e9b834c81ee24e4372c
 
 -----------------------------------------------------------------------------------------------
 
