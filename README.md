@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
+# Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
 Site URL http://recharles.com/
 
@@ -17,7 +17,7 @@ To log as Admin:
 
 
 -----------------------------------------------------------------------------------------------
-# Rocket Elevators Information System <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
+# Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
 
 
 ## CodeBoxx Odissey - Week 8 - Consolidation
