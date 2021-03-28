@@ -26,6 +26,10 @@ To access the Postman End Points
 
 https://www.getpostman.com/collections/5e9b834c81ee24e4372c
 
+The REST API can be found here
+
+https://github.com/ShaphanCharles/Rocket_Elevators_Restapi2.git
+
 -----------------------------------------------------------------------------------------------
 
 Gems used <img src="https://w7.pngwing.com/pngs/96/713/png-transparent-ruby-on-rails-programming-language-rubygems-php-ruby-gem-angle-heart-logo.png" align="right" alt="gem image, from Ruby on Rails logo" width="70" height="">
