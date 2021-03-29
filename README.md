@@ -24,7 +24,7 @@ To log as Admin:
 
 To access the Postman End Points
 
-https://www.getpostman.com/collections/5e9b834c81ee24e4372c
+https://www.getpostman.com/collections/362d31055614e237c905
 
 The REST API can be found here
 
