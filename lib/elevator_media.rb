@@ -9,7 +9,7 @@ module ElevatorMedia
 
         def self.getContent#(my_content)
             
-            @url = "https://api.openweathermap.org/data/2.5/weather?q=Quebec&appid=63026d8d655a9d503c33d4b184010f20"
+            @url = "https://api.openweathermap.org/data/2.5/weather?q=Quebec&appid=#{ENV["weather_api_key"]}"
             @uri = URI(@url)
             @resp = Net::HTTP.get(@uri)
 
