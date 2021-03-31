@@ -3,15 +3,15 @@
 <% end %>
 
 <section id="intervention-form">
-<div class="container">
-    <div class="heading-title heading-dotted text-center">
-        <h2>INTERVENTION <span>FORM</span></h2>
-    </div>
-    <!-- /Title -->
-    <!-- I Form -->
+    <div class="container">
+        <div class="heading-title heading-dotted text-center">
+            <h2>INTERVENTION <span>FORM</span></h2>
+        </div>
+        <!-- /Title -->
+        <!-- I Form -->
 
-    <div class="container form ">
-        <%= form_for(Intervention.new) do |f| %>
+        <div class="container form ">
+            <%= form_for(Intervention.new) do |f| %>
             <div id="customer_id"> 
                 <%= f.label :customer %>
                 <%= f.collection_select :customer_id, Customer.all, :id, :cpy_contact_full_name, {:prompt => "Select a Customer*"}, {:class => "customer_selection"} %>
@@ -41,11 +41,12 @@
                 <%= f.label :description %>
                 <%= f.text_area :report, :cols => 54, :rows => 6, class:"form-control" %>
             </div>
+            </br>
+            <div class="container form col-md-4">
+                    <%= submit_tag "SUBMIT" , class: 'btn btn-primary'  %><i class:"fa fa-check"></i>
+            </div>
+        </div>
     </div>
-</div>
-<div class="container form col-md-4">
-        <%= submit_tag "SUBMIT" , class: 'btn btn-primary'  %><i class:"fa fa-check"></i>
-    </div>
-    </br>
-</div>
+</section>
 <% end %>
+

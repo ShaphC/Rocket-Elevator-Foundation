@@ -42,7 +42,14 @@ gem "zendesk_api"
 gem 'rspotify'
 gem 'rack-cors'
 gem 'active_model_serializers'
-
+gem 'twilio-ruby'
+gem 'slack-notifier'
+gem 'dropbox_api'
+gem 'recaptcha', '~> 5.7'
+gem 'rspec-rails', '~> 3.0'
+gem 'webmock'
+gem 'json'
+gem 'open-weather-ruby-client'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -69,15 +76,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# ===============================================================
-#     Shaphan Charles added these gems(I'll move them later)
-# ===============================================================
-gem 'twilio-ruby'
-
-gem 'slack-notifier'
-
-gem 'dropbox_api'
-
-gem "recaptcha", '~> 5.7'
-# ===============================================================git branch
