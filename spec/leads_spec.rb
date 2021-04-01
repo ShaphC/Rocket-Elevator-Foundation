@@ -10,14 +10,19 @@ RSpec.describe LeadsController::Lead do
             phone: "470-100-2181",
             company_name: "Troy Stokes",
             project_name: "Test",
-            department: "Residential"
+            department: "Residential",
             project_description: "Test Desc.",
-            message: "Test Message",
-            file: "testfile.txt"
+            message: "Test Message"
         )
-
-        it 'test the lead response' do
-            expect(lead.full_name).to be_a_kind_of(String)
+        context 'checks that the response is not empty' do
+            it 'returns a response' do
+                expect(lead.full_name).not_to be(nil)
+            end
+        end
+        context 'checks that the response is a string' do
+            it 'returns a string' do
+                expect(lead.full_name).to be_a_kind_of(String)
+            end
         end
 
         # it 'check that the value us an integer' do

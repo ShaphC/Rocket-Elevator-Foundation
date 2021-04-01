@@ -25,17 +25,20 @@ RSpec.describe QuotesController::Quote do
             quotes_email: "marion@ankunding.org",
             quotes_name: "Leffler-Mertz"
         )
-
-        it 'test the quote response' do
-            expect(quote).not_to be(nil)
+        context 'tests that the quote response is not empty' do   
+            it 'returns a response' do
+                expect(quote).not_to be(nil)
+            end
         end
-
-        it 'check that the value us an integer' do
-            expect(quote.number_of_apartments).to be_a(Integer)
+        context 'check that the value is an integer' do
+            it 'returns an integer' do
+                expect(quote.number_of_apartments).to be_a(Integer)
+            end
         end
-        
-        it 'check that the name is a string' do
-            expect(quote.quotes_company_name).to be_a_kind_of(String)
+        context 'check that the name is a string' do
+            it 'returns a string' do
+                expect(quote.quotes_company_name).to be_a_kind_of(String)
+            end
         end
     end
 end

@@ -13,14 +13,16 @@ RSpec.describe InterventionsController::Intervention do
             employee_id: 1,
             report: "Testing",
         )
-
-        it 'test the intervention response' do
-            expect(intervention.column_id).to be_a(Integer)
-            # expext(intervention.report).to be_a(String)
+        context 'test the intervention response is an integer' do
+            it 'returns an integer' do
+                expect(intervention.column_id).to be_a(Integer)
+                # expext(intervention.report).to be_a(String)
+            end
         end
-
-        it 'check that the report is a string' do
-            expect(intervention.report).to be_a_kind_of(String)
+        context 'check that the report is a string' do
+            it 'returns a string' do
+                expect(intervention.report).to be_a_kind_of(String)
+            end
         end
     end
 end
