@@ -2,8 +2,8 @@ require 'rails_helper'
 require './app/controllers/interventions_controller.rb'
 
 
-RSpec.describe InterventionsController::Lead do
-    describe 'get Leads' do
+RSpec.describe InterventionsController::Intervention do
+    describe '#getInterventions' do
         intervention = Intervention.create(
             customer_id: 1,
             building_id: 1,
@@ -19,12 +19,8 @@ RSpec.describe InterventionsController::Lead do
             # expext(intervention.report).to be_a(String)
         end
 
-        # it 'check that the value us an integer' do
-        #     expect().to be_a(Integer)
-        # end
-        
-        # it 'check that the name is a string' do
-        #     expect().to be_a_kind_of(String)
-        # end
+        it 'check that the report is a string' do
+            expect(intervention.report).to be_a_kind_of(String)
+        end
     end
 end

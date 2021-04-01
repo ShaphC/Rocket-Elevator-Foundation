@@ -15,7 +15,7 @@ module ElevatorMedia
 
             @output = JSON.parse(@resp)
 
-            data = "#{@output["name"]} Weather: #{@output["weather"].first.fetch("main")}, #{@output["weather"].first.fetch("description")}, Temperature: #{@output["main"]["temp"] - 272.15}°C"
+            data = "#{@output["name"]} Weather: #{@output["weather"].first.fetch("main")}, #{@output["weather"].first.fetch("description")}, Temperature: #{(@output["main"]["temp"] - 272.15).round(2)}°C"
             
             return data
         end
