@@ -3,7 +3,17 @@
 
 Site URL http://recharles.com/
 
+-----------------------------------------------------------------------------------------------
+# Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
 
+
+## CodeBoxx Odissey - Week 9 - Quality and Test Driven Development
+
+The RSpec tests can be found in the lib folder, and 
+the tests can be run using "rspec --format doc command".
+
+![RSpec location](https://user-images.githubusercontent.com/70099840/113455388-792ad000-93d8-11eb-8569-794e678d2f5c.PNG)
+-----------------------------------------------------------------------------------------------
 📚 Instructions to acces to the admin panel:
 
 To log as Admin:
@@ -14,7 +24,6 @@ To log as Admin:
 4. click on the admin button in nav bar
 ```
 ![](app/assets/images/readme/login.png)
-
 
 -----------------------------------------------------------------------------------------------
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
