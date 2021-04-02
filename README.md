@@ -14,6 +14,15 @@ The tests can be run using "rspec --format doc" command.
 
 ![RSpec location](https://user-images.githubusercontent.com/70099840/113455686-4a612980-93d9-11eb-9b05-f27b49f18923.PNG)
 
+Since the elevator_media.rb file uses Rails Environment Variables,
+there are two ways to make the API functional.
+
+1.Change the #{ENV["weather_api_key"]} with the api key.
+![image](https://user-images.githubusercontent.com/70099840/113456265-bd1ed480-93da-11eb-8679-e3ea28ebbe5f.png)
+
+2.Create an application.yml that has the key.
+![Weather API key](https://user-images.githubusercontent.com/70099840/113456585-97de9600-93db-11eb-9e35-64122d12060c.PNG)
+
 -----------------------------------------------------------------------------------------------
 📚 Instructions to acces to the admin panel:
 
