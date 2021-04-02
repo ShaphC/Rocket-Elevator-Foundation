@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
 Site URL http://recharles.com/
