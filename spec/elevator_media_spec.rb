@@ -11,6 +11,7 @@ RSpec.describe ElevatorMedia::Streamer, '#getContent' do
 		end
 		context 'queries OpenWeatherMap' do
 			it 'returns a response' do
+				puts ElevatorMedia::Streamer.getContent
 				expect(ElevatorMedia::Streamer.getContent).to be_a_kind_of(String)
 			end
 		end

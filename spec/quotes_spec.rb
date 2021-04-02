@@ -38,6 +38,7 @@ RSpec.describe QuotesController::Quote do
         context 'check that the name is a string' do
             it 'returns a string' do
                 expect(quote.quotes_company_name).to be_a_kind_of(String)
+                expect(quote.unit_price).to be_a_kind_of(String)
             end
         end
     end

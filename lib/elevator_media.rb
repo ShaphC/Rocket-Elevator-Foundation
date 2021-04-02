@@ -7,7 +7,7 @@ module ElevatorMedia
 
     class Streamer
 
-        def self.getContent#(my_content)
+        def self.getContent
             
             #Pulls data from the API
             @url = "https://api.openweathermap.org/data/2.5/weather?q=Quebec&appid=#{ENV["weather_api_key"]}"

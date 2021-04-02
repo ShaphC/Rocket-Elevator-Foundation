@@ -13,6 +13,11 @@ RSpec.describe InterventionsController::Intervention do
             employee_id: 1,
             report: "Testing",
         )
+		context 'checks that the response is not empty' do
+			it 'returns a response' do
+				expect(intervention).not_to be(nil)
+			end
+		end
         context 'test the intervention response is an integer' do
             it 'returns an integer' do
                 expect(intervention.column_id).to be_a(Integer)
