@@ -11,7 +11,8 @@ Site URL http://recharles.com/
 The RSpec tests can be found in the lib folder, and 
 the tests can be run using "rspec --format doc command".
 
-![RSpec location](https://user-images.githubusercontent.com/70099840/113455388-792ad000-93d8-11eb-8569-794e678d2f5c.PNG)
+![RSpec location](https://user-images.githubusercontent.com/70099840/113455686-4a612980-93d9-11eb-9b05-f27b49f18923.PNG)
+
 -----------------------------------------------------------------------------------------------
 📚 Instructions to acces to the admin panel:
 
