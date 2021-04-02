@@ -20,7 +20,9 @@ there are two ways to make the API functional.
 1.Change the #{ENV["weather_api_key"]} with the api key.
 ![image](https://user-images.githubusercontent.com/70099840/113456265-bd1ed480-93da-11eb-8679-e3ea28ebbe5f.png)
 
-2.Create an application.yml that has the key.
+![key change](https://user-images.githubusercontent.com/70099840/113456693-eee46b00-93db-11eb-8b9e-ebefccca6279.PNG)
+
+2.Create an application.yml in the /config folder and add the environment variable with the key.
 ![Weather API key](https://user-images.githubusercontent.com/70099840/113456585-97de9600-93db-11eb-9e35-64122d12060c.PNG)
 
 -----------------------------------------------------------------------------------------------
