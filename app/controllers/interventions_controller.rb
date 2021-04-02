@@ -68,6 +68,29 @@ class InterventionsController < ApplicationController
         @intervention = Intervention.new
     end
 
+    def getCustomer
+        @customer = Array.new
+        
+        Customer.all.each do |c|
+            @customer.append(c.company_name)
+        end
+
+        return @customer
+    end
+
+    def getEmployee
+        @employee = Array.new
+
+        Employee.all.each do |e|
+            @employee.append(first_name)
+        end
+
+        return @employee
+    end
+
+    helper_method :getCustomer
+    helper_method :getEmployee
+
     def create
 
         # ZENDESK Quotes 1/2
@@ -91,7 +114,7 @@ class InterventionsController < ApplicationController
         fact_intervention()
         
         # ZENDESK 2/2
-        ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{current_user.id}\n\n", :comment => {:value => "The requestor is #{current_user.id} for #{@intervention.employee_id}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Employee ID: #{@intervention.employee_id}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
+        ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{Employee.find(current_user.id).first_name}\n\n", :comment => {:value => "The requestor is #{Employee.find(current_user.id).first_name} #{Employee.find(current_user.id).last_name} for #{Customer.find(@intervention.customer_id).company_name}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Assigned Employee: #{Employee.find(@intervention.employee_id).first_name} #{Employee.find(@intervention.employee_id).last_name}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
         # END Zendesk 2/2
 
         # redirect_to main_app.root_path, notice: "Intervention Sent!"
@@ -104,7 +127,7 @@ class InterventionsController < ApplicationController
     private
 
     def fact_intervention
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "dwh_scharles", user: "codeboxx", password: "Codeboxx1!")
       dwh.exec("TRUNCATE fact_interventions")
 
       dwh.prepare('to_fact_interventions', 'INSERT INTO fact_interventions (building_id, battery_id, column_id, elevator_id, employee_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')

@@ -38,7 +38,8 @@
 	</head>
 
   <body>
-    <%= render 'home/header' %>
+	<%= render 'home/header' %>
+	<%= ElevatorMedia::Streamer.getContent %>
     <%= yield %>
     <%= render 'home/footer' %>
   </body>
