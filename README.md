@@ -8,8 +8,9 @@ Site URL http://recharles.com/
 
 ## CodeBoxx Odissey - Week 9 - Quality and Test Driven Development
 
-The RSpec tests can be found in the lib folder, and 
-the tests can be run using "rspec --format doc command".
+The Spec file that are setup to run the code can be found in the spec folder, and 
+the file for the new Elevator Media(elevator_media.rb) can be found within the lib folder
+The tests can be run using "rspec --format doc" command.
 
 ![RSpec location](https://user-images.githubusercontent.com/70099840/113455686-4a612980-93d9-11eb-9b05-f27b49f18923.PNG)
 
