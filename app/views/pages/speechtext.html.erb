@@ -424,6 +424,7 @@
         });
 
         function enumerateMicrophones() {
+            console.log(navigator)
             if (!navigator || !navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
                 console.log(`Unable to query for audio input devices. Default will be used.\r\n`);
                 return;
