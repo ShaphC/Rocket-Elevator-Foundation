@@ -58,6 +58,7 @@ RailsAdmin.config do |config|
   end
 
   config.navigation_static_links = {
-    'Charts' => '/charts'
+    'Charts' => '/charts',
+    'Speech Transcription' => '/speechtext'
   }
 end

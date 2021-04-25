@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
 
+  get '/speechtext' => 'pages#speechtext'
+
   # get '/watson'       => 'watson#textToSpeech'
 
   # get '/spotify'      => 'api/v1/tracks#random'
