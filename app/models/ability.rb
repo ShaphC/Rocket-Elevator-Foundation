@@ -7,16 +7,16 @@ class Ability
   
       user ||= User.new # guest user (not logged in)
       #can :manage, :all  # <---------- TO GIVE TEMPORARY ACCESS TO EVERYTHING FOR EVERYONE
-      if user.superadmin_role?
+      if user.admin?
             can :manage, :all
             can :access, :rails_admin       # only allow admin users to access Rails Admin
             can :manage, :dashboard         # allow access to dashboard
       end
-      if user.employee_role?
-            can :manage, :all
-            can :access, :rails_admin       # only allow admin users to access Rails Admin
-            can :manage, :dashboard         # allow access to dashboard
-      end
+    #   if user.employee_role?
+    #         can :manage, :all
+    #         can :access, :rails_admin       # only allow admin users to access Rails Admin
+    #         can :manage, :dashboard         # allow access to dashboard
+    #   end
   
       # Define abilities for the passed in user here. For example:
       #
