@@ -1,9 +1,31 @@
-<<<<<<< HEAD
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
 Site URL http://recharles.com/
 
+-----------------------------------------------------------------------------------------------
+# Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
 
+
+## CodeBoxx Odissey - Week 10 - Quality and Test Driven Development
+
+The Spec file that are setup to run the code can be found in the spec folder, and 
+the file for the new Elevator Media(elevator_media.rb) can be found within the lib folder
+The tests can be run using "rspec --format doc" command.
+
+![RSpec location](https://user-images.githubusercontent.com/70099840/113455686-4a612980-93d9-11eb-9b05-f27b49f18923.PNG)
+
+Since the elevator_media.rb file uses Rails Environment Variables,
+there are two ways to make the API functional.
+
+1.Change the #{ENV["weather_api_key"]} with the api key. (63026d8d655a9d503c33d4b184010f20)
+![image](https://user-images.githubusercontent.com/70099840/113456265-bd1ed480-93da-11eb-8679-e3ea28ebbe5f.png)
+
+![key change](https://user-images.githubusercontent.com/70099840/113456693-eee46b00-93db-11eb-8b9e-ebefccca6279.PNG)
+
+2.Create an application.yml in the /config folder and add the environment variable with the key.
+![Weather API key](https://user-images.githubusercontent.com/70099840/113456585-97de9600-93db-11eb-9e35-64122d12060c.PNG)
+
+-----------------------------------------------------------------------------------------------
 📚 Instructions to acces to the admin panel:
 
 To log as Admin:
@@ -14,7 +36,6 @@ To log as Admin:
 4. click on the admin button in nav bar
 ```
 ![](app/assets/images/readme/login.png)
-
 
 -----------------------------------------------------------------------------------------------
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
