@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
 
+  # Used to get to the speechtext page
   get '/speechtext' => 'pages#speechtext'
 
   # get '/watson'       => 'watson#textToSpeech'

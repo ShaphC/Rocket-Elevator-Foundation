@@ -15,4 +15,4 @@
 //= require Chart.bundle
 //= require chartkick
 //= require_tree .
-//= require transcription.js
+//= require 'transcription.js'

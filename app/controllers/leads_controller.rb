@@ -43,9 +43,10 @@ class LeadsController < ApplicationController
 
             fact_contacts()
 
-            # ZENDESK 3/3
-            ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}"}, :priority => "normal", :type => "question")
-            # END Zendesk 3/3
+            # # ZENDESK 3/3
+            # # The trial is probably done
+            # ZendeskAPI::Ticket.create!(client, :subject => "Subject: #{@lead.full_name} from #{@lead.company_name}\n\n", :comment => {:value => "The contact #{@lead.full_name} from #{@lead.company_name} can be reached at email: #{@lead.email} and at phone number: #{@lead.phone}.\n\n #{@lead.department} has a project named: #{@lead.project_name} which would require contribution from Rocket Elevators.\n\n Project Description: \n#{@lead.project_description}.\n\n Attached Message: \n#{@lead.message}"}, :priority => "normal", :type => "question")
+            # # END Zendesk 3/3
 
             redirect_to main_app.root_path, notice: "Message sent!"
 
@@ -89,7 +90,7 @@ class LeadsController < ApplicationController
 
     private
     def fact_contacts
-        #   dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
+        # dwh = PG::Connection.new(host: "localhost", port: 5432, dbname: "Scharles_psql", user: "postgres", password: "postgres")
         #   dwh = PG::Connection.new(port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
         dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "dwh_scharles", user: "codeboxx", password: "Codeboxx1!")
         dwh.exec("TRUNCATE fact_contacts")
