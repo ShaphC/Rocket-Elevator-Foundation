@@ -14,10 +14,6 @@ RailsAdmin.config do |config|
     
     # Sync Data Warehouse with official Database
 
-  ## == Devise ==
-  config.authenticate_with do
-    warden.authenticate! scope: :user
-  end
   # == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :user
