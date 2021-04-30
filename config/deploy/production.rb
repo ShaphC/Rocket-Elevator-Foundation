@@ -5,6 +5,7 @@
 
 # server "99.79.123.96", user: "ubuntu", roles: %w{app db web}
 server "15.222.252.9", user: "ubuntu", roles: %w{app db web}
+# server "15.222.252.9", user: "deploy", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
@@ -14,8 +15,8 @@ end
 set :application, app
 set :rails_env, "development"
 set :bundle_without, "production"
-# set :deploy_to, "/home/ubuntu/apps/#{app}"
-set :deploy_to, "/home/ubuntu/#{app}"
+set :deploy_to, "/home/ubuntu/apps/#{app}"
+# set :deploy_to, "/home/deploy/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/application.yml}
 set :branch, 'main'
