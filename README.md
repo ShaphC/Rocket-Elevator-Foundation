@@ -1,12 +1,21 @@
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
-Site URL http://recharles.com/
+Site URL https://recharles.com/
 
 -----------------------------------------------------------------------------------------------
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
 
 
-## CodeBoxx Odissey - Week 10 - Quality and Test Driven Development
+## Codeboxx Odyssey - Week 14 - DevOps
+
+Implemented New Relic APM to monitor the Rocket Elevators Information System
+![image](https://user-images.githubusercontent.com/70099840/117044071-fbf6c180-acdb-11eb-9616-aeece1c716bc.png)
+
+And Google Analytics for further insights.
+![image](https://user-images.githubusercontent.com/70099840/117045081-1c734b80-acdd-11eb-83ad-bf5baa883188.png)
+
+
+## CodeBoxx Odyssey - Week 10 - Quality and Test Driven Development
 
 The Spec file that are setup to run the code can be found in the spec folder, and 
 the file for the new Elevator Media(elevator_media.rb) can be found within the lib folder
