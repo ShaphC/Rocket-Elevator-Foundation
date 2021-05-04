@@ -114,7 +114,7 @@ class InterventionsController < ApplicationController
         fact_intervention()
         
         # ZENDESK 2/2
-        ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{Employee.find(current_user.id).first_name}\n\n", :comment => {:value => "The requestor is #{Employee.find(current_user.id).first_name} #{Employee.find(current_user.id).last_name} for #{Customer.find(@intervention.customer_id).company_name}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Assigned Employee: #{Employee.find(@intervention.employee_id).first_name} #{Employee.find(@intervention.employee_id).last_name}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
+        # ZendeskAPI::Ticket.create!(client, :subject => "Subject: Intervention request from #{Employee.find(current_user.id).first_name}\n\n", :comment => {:value => "The requestor is #{Employee.find(current_user.id).first_name} #{Employee.find(current_user.id).last_name} for #{Customer.find(@intervention.customer_id).company_name}\n\n Building ID: #{@intervention.building_id}\n Battery_ID: #{@intervention.battery_id}\n Column ID: #{@intervention.column_id}\n Elevator ID: #{@intervention.elevator_id}\n Assigned Employee: #{Employee.find(@intervention.employee_id).first_name} #{Employee.find(@intervention.employee_id).last_name}\n Description: #{@intervention.report}"}, :priority => "normal", :type => "problem")
         # END Zendesk 2/2
 
         # redirect_to main_app.root_path, notice: "Intervention Sent!"
