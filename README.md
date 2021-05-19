@@ -1,6 +1,6 @@
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo by Maxime Auger" width="100" height="">
 
-Site URL https://recharles.com/
+Site URL https://recharles.xyz/
 
 -----------------------------------------------------------------------------------------------
 # Rocket Elevators Foundation <img src="app/assets/images/favicon.png" align="right" alt="Rocket Elevators logo" width="" height="100">
